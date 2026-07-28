@@ -413,6 +413,34 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 
 .card__cta:hover { color: var(--naranja); gap: 12px; }
 
+/* ===== MARCAS ===== */
+.marcas { background: var(--marron); padding: 48px 0; }
+.marcas__label {
+  text-align: center;
+  color: var(--piedra);
+  opacity: 0.7;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.marcas__grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+}
+.marcas__item {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--crema);
+  opacity: 0.85;
+  transition: var(--transition);
+}
+.marcas__item:hover { color: var(--naranja); opacity: 1; }
+
 /* ===== CONFIANZA ===== */
 .confianza { background: var(--marron-2); color: var(--blanco); padding: 120px 0; text-align: center; }
 .confianza__inner blockquote {
@@ -487,4 +515,6 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
   .cat-block__image { width: 100%; height: 160px; }
   .item-list { grid-template-columns: 1fr; }
   .section-sub { margin-top: -24px; }
+  .marcas__grid { gap: 16px 28px; }
+  .marcas__item { font-size: 1rem; }
 }
