@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yabar Ferretería | Todo para construir en Nasca</title>
-<meta name="description" content="Yabar Ferretería en Nasca. Materiales de construcción, maquinaria y entrega en obra. No solo vendemos materiales, también somos parte de tu proyecto.">
+<title>Yabar Ferretería | Todo para tu obra en un solo lugar</title>
+<meta name="description" content="Ferretería Yabar en Nasca y Acarí. Líderes en materiales de construcción, maquinaria y entregas puntuales. Calidad garantizada para tu proyecto.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,15 +17,21 @@
     <a href="#top" class="logo">
       <span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span>
     </a>
-    <nav class="nav">
+    
+    <!-- Menú Hamburguesa (Nuevo, sin romper JS) -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
       <a href="#servicios">Servicios</a>
       <a href="#productos">Productos</a>
       <a href="#confianza">Nosotros</a>
+      <a class="btn btn--wa header__cta" target="_blank" rel="noopener"
+         href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n">
+        Escríbenos <span class="wa-icon"></span>
+      </a>
     </nav>
-    <a class="btn btn--wa header__cta" target="_blank" rel="noopener"
-       href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n">
-      Escríbenos <span class="wa-icon"></span>
-    </a>
   </div>
 </header>
 
@@ -33,17 +39,17 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__bgtext" aria-hidden="true">CONSTRUYE&nbsp;CONSTRUYE&nbsp;CONSTRUYE&nbsp;</div>
+    <div class="hero__bgtext" aria-hidden="true">CALIDAD&nbsp;CONFIANZA&nbsp;PUNTUALIDAD&nbsp;</div>
     <div class="container hero__inner">
-      <p class="eyebrow">GENTE QUE CONSTRUYE — NASCA</p>
-      <h1 class="hero__title">No solo vendemos<br>materiales, también<br>somos parte de tu<span class="accent"> proyecto.</span></h1>
-      <p class="hero__sub">Ferretería, materiales de construcción y maquinaria con entrega directa en obra. Rápido, como debe ser.</p>
+      <p class="eyebrow">FERRETERÍA YABAR — NASCA & ACARÍ</p>
+      <h1 class="hero__title">Todo para tu obra en un <span class="accent">solo lugar.</span></h1>
+      <p class="hero__sub">Materiales de construcción de alta calidad y maquinaria especializada con entrega garantizada directamente en tu obra.</p>
       <div class="hero__actions">
         <a class="btn btn--primary" target="_blank" rel="noopener"
            href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar%20materiales">
           Cotizar por WhatsApp
         </a>
-        <a class="btn btn--ghost" href="#productos">Ver productos</a>
+        <a class="btn btn--ghost" href="#productos">Ver Catálogo</a>
       </div>
     </div>
   </section>
@@ -52,16 +58,16 @@
   <section class="strip" id="servicios">
     <div class="container strip__grid">
       <div class="strip__item">
-        <span class="strip__num">Llegamos contigo</span>
-        <p>Entregamos en obra. Rápido, como debe ser.</p>
+        <span class="strip__num">Entregas Rápidas</span>
+        <p>Logística optimizada para que tu obra nunca se detenga. Llegamos a Nasca y Acarí.</p>
       </div>
       <div class="strip__item">
-        <span class="strip__num">Poder mecánico</span>
-        <p>Cuando no puedes hacerlo a mano, nosotros tenemos la máquina.</p>
+        <span class="strip__num">Productos de Calidad</span>
+        <p>Trabajamos con las mejores marcas del mercado para garantizar durabilidad.</p>
       </div>
       <div class="strip__item">
-        <span class="strip__num">Todo para construir</span>
-        <p>Lo que buscas, lo tenemos. Y si no, lo conseguimos.</p>
+        <span class="strip__num">Atención Especializada</span>
+        <p>Asesoramiento profesional para elegir los materiales adecuados para tu proyecto.</p>
       </div>
     </div>
   </section>
@@ -69,47 +75,67 @@
   <!-- PRODUCTOS -->
   <section class="productos" id="productos">
     <div class="container">
-      <h2 class="section-title">Lo que necesitas para tu obra</h2>
+      <h2 class="section-title">Nuestras Soluciones</h2>
       <div class="cards">
 
         <article class="card">
-          <div class="card__tag">Materiales</div>
-          <h3>Ladrillo Pirámide</h3>
-          <p class="card__price">Desde S/ 120 <span>el millar</span></p>
-          <a class="card__cta" target="_blank" rel="noopener"
-             href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Ladrillo%20Pir%C3%A1mide">
-            Cotizar →
-          </a>
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=400" alt="Barras de construcción">
+          </div>
+          <div class="card__content">
+            <div class="card__tag">Materiales</div>
+            <h3>Barras de Construcción</h3>
+            <p class="card__price">Aceros Arequipa <span>todas las medidas</span></p>
+            <a class="card__cta" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Barras%20de%20Construccion">
+              Cotizar Ahora →
+            </a>
+          </div>
         </article>
 
         <article class="card">
-          <div class="card__tag">Maquinaria</div>
-          <h3>Retroexcavadora + Operador</h3>
-          <p class="card__price">Desde S/ 500 <span>el día</span></p>
-          <a class="card__cta" target="_blank" rel="noopener"
-             href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Retroexcavadora">
-            Cotizar →
-          </a>
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400" alt="Ladrillos Pirámide">
+          </div>
+          <div class="card__content">
+            <div class="card__tag">Estructurales</div>
+            <h3>Ladrillos Pirámide</h3>
+            <p class="card__price">Pandereta y King Kong <span>por millar</span></p>
+            <a class="card__cta" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Ladrillos">
+              Cotizar Ahora →
+            </a>
+          </div>
         </article>
 
         <article class="card">
-          <div class="card__tag">Ferretería</div>
-          <h3>Tuberías y accesorios</h3>
-          <p class="card__price">Todo diámetro <span>y línea</span></p>
-          <a class="card__cta" target="_blank" rel="noopener"
-             href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Tuber%C3%ADas">
-            Cotizar →
-          </a>
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=400" alt="Tubos PVC">
+          </div>
+          <div class="card__content">
+            <div class="card__tag">Instalaciones</div>
+            <h3>Tubos y Accesorios PVC</h3>
+            <p class="card__price">Agua, Desagüe y Luz <span>Pavco / Nicoll</span></p>
+            <a class="card__cta" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Tuberias">
+              Cotizar Ahora →
+            </a>
+          </div>
         </article>
 
         <article class="card">
-          <div class="card__tag">Entrega</div>
-          <h3>Transporte a obra</h3>
-          <p class="card__price">Camión y trici <span>disponibles</span></p>
-          <a class="card__cta" target="_blank" rel="noopener"
-             href="https://wa.me/51958345849?text=Hola%2C%20quiero%20consultar%20por%20transporte%20a%20obra">
-            Cotizar →
-          </a>
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&q=80&w=400" alt="Herramientas">
+          </div>
+          <div class="card__content">
+            <div class="card__tag">Ferretería</div>
+            <h3>Herramientas y Equipos</h3>
+            <p class="card__price">Manuales y Eléctricas <span>profesionales</span></p>
+            <a class="card__cta" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20consultar%20por%20herramientas">
+              Cotizar Ahora →
+            </a>
+          </div>
         </article>
 
       </div>
@@ -120,8 +146,8 @@
   <section class="confianza" id="confianza">
     <div class="container confianza__inner">
       <blockquote>
-        “Con YABAR terminé mi obra a tiempo. Me asesoraron desde los planos hasta el último enchapado.”
-        <cite>— Luis Mendoza, maestro de obra, Vista Alegre</cite>
+        “La puntualidad de YABAR es lo que más valoro. Sus materiales son de primera y el asesoramiento es impecable.”
+        <cite>— Luis Mendoza, Maestro de Obra en Vista Alegre</cite>
       </blockquote>
     </div>
   </section>
@@ -129,10 +155,10 @@
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="container cta-final__inner">
-      <h2>Cada obra es única.<br>Cada cliente, también.</h2>
+      <h2>Profesionalismo en cada entrega.</h2>
       <a class="btn btn--primary" target="_blank" rel="noopener"
          href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n%20sobre%20mi%20obra">
-        Hablar con Yabar
+        Hablar con un Asesor
       </a>
     </div>
   </section>
@@ -143,19 +169,25 @@
   <div class="container footer__inner">
     <div>
       <p class="logo logo--footer"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></p>
-      <p class="footer__addr">Av. Bolognesi #123, Nasca, Perú</p>
+      <p class="footer__addr">
+        <strong>Sede Nasca:</strong> Av. Bolognesi #123<br>
+        <strong>Sede Acarí:</strong> Calle Comercio #456
+      </p>
     </div>
     <div class="footer__contact">
-      <a href="tel:+51958345849">(+51) 958 345 849</a>
+      <a href="tel:+51958345849">+51 958 345 849</a>
       <a href="tel:056256101">(056) 256-101</a>
       <a href="mailto:contacto@yabar.com">contacto@yabar.com</a>
     </div>
+  </div>
+  <div class="container footer__bottom">
+    &copy; 2026 Ferretería Yabar. Todos los derechos reservados.
   </div>
 </footer>
 
 <a href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n"
    target="_blank" rel="noopener" class="whatsapp-float" aria-label="Escribir por WhatsApp">
-  <svg viewBox="0 0 32 32" width="28" height="28" fill="white"><path d="M16.001 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.7 4.7 1.9 6.7L3 29l7-1.9c1.9 1.1 4.1 1.6 6 1.6 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.7c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.2 1.1 1.1-4.1-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.7 0-5.7 4.6-10.3 10.3-10.3 5.7 0 10.3 4.6 10.3 10.3.4 5.8-4.2 10.8-9.9 10.8zm5.6-7.7c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="white"><path d="M16.001 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.7 4.7 1.9 6.7L3 29l7-1.9c1.9 1.1 4.1 1.6 6 1.6 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.7c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.2 1.1 1.1-4.1-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.7 0-5.7 4.6-10.3 10.3-10.3 5.7 0 10.3 4.6 10.3 10.3.4 5.8-4.2 10.8-9.9 10.8zm5.6-7.7c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
 <script src="script.js"></script>
