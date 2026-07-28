@@ -227,6 +227,147 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
   text-align: center;
 }
 
+.section-sub {
+  text-align: center;
+  color: var(--marron-2);
+  opacity: 0.8;
+  max-width: 560px;
+  margin: -40px auto 48px;
+  font-size: 1.05rem;
+}
+
+/* ===== FILTROS ===== */
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 22px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--piedra);
+  background: var(--blanco);
+  color: var(--marron-2);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover { border-color: var(--naranja); color: var(--naranja); }
+
+.filter-btn.active {
+  background: var(--naranja);
+  border-color: var(--naranja);
+  color: var(--blanco);
+}
+
+/* ===== CATÁLOGO ===== */
+.catalog { display: flex; flex-direction: column; gap: 32px; }
+
+.cat-block {
+  background: var(--blanco);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(43, 28, 20, 0.06);
+  padding: 32px;
+  transition: var(--transition);
+}
+
+.cat-block__header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.cat-block__image {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--crema);
+}
+
+.cat-block__image img { width: 100%; height: 100%; object-fit: cover; }
+
+.cat-block__info h3 { font-size: 1.5rem; color: var(--marron); margin-bottom: 6px; }
+.cat-block__info p { color: var(--marron-2); opacity: 0.8; font-size: 0.95rem; }
+
+.item-list__subtitle {
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--naranja);
+  margin: 24px 0 10px;
+}
+
+.item-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 4px 24px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--piedra);
+  font-size: 0.95rem;
+  color: var(--marron-2);
+}
+
+.item span { flex: 1; }
+
+.item-quote {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--marron);
+  border: 1.5px solid var(--marron);
+  border-radius: 999px;
+  padding: 5px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.item-quote:hover { background: var(--naranja); border-color: var(--naranja); color: var(--blanco); }
+
+.catalog__note {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--marron-2);
+  font-size: 0.95rem;
+}
+
+.inline-link { color: var(--naranja); font-weight: 700; }
+.inline-link:hover { text-decoration: underline; }
+
+/* ===== SEDES ===== */
+.sedes { background: var(--piedra); padding: 100px 0; }
+.sedes__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 48px; }
+
+.sede-card {
+  background: var(--blanco);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sede-card h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--marron); margin: 8px 0 12px; }
+.sede-card__addr { color: var(--marron-2); opacity: 0.8; margin-bottom: 24px; }
+.sede-card__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
+.sede-card__tel { font-weight: 700; color: var(--marron-2); }
+.sede-card__tel:hover { color: var(--naranja); }
+
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
 
 .card {
@@ -341,4 +482,9 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
   .hero { padding: 100px 0 80px; }
   .hero__bgtext { font-size: 8rem; }
   .cards { grid-template-columns: 1fr; }
+  .cat-block { padding: 24px; }
+  .cat-block__header { flex-direction: column; align-items: flex-start; }
+  .cat-block__image { width: 100%; height: 160px; }
+  .item-list { grid-template-columns: 1fr; }
+  .section-sub { margin-top: -24px; }
 }

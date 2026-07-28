@@ -26,6 +26,7 @@
     <nav class="nav" id="mainNav">
       <a href="#servicios">Servicios</a>
       <a href="#productos">Productos</a>
+      <a href="#sedes">Sedes</a>
       <a href="#confianza">Nosotros</a>
       <a class="btn btn--wa header__cta" target="_blank" rel="noopener"
          href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n">
@@ -75,70 +76,114 @@
   <!-- PRODUCTOS -->
   <section class="productos" id="productos">
     <div class="container">
-      <h2 class="section-title">Nuestras Soluciones</h2>
-      <div class="cards">
+      <h2 class="section-title">Nuestro Catálogo</h2>
+      <p class="section-sub">Explora por categoría y cotiza cada medida directamente por WhatsApp.</p>
 
-        <article class="card">
-          <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=400" alt="Barras de construcción">
+      <!-- Filtros -->
+      <div class="filters" role="tablist" aria-label="Filtrar categorías de productos">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="fierro">Fierro de Construcción</button>
+        <button class="filter-btn" data-filter="ladrillos">Ladrillos</button>
+        <button class="filter-btn" data-filter="tuberia">Tuberías PVC</button>
+      </div>
+
+      <div class="catalog">
+
+        <!-- FIERRO DE CONSTRUCCIÓN -->
+        <article class="cat-block" data-cat="fierro">
+          <div class="cat-block__header">
+            <div class="cat-block__image">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=400" alt="Barras de construcción Aceros Arequipa">
+            </div>
+            <div class="cat-block__info">
+              <div class="card__tag">Marca: Aceros Arequipa</div>
+              <h3>Fierro de Construcción</h3>
+              <p>Barras corrugadas en todas las medidas comerciales, largo de 9 metros.</p>
+            </div>
           </div>
-          <div class="card__content">
-            <div class="card__tag">Materiales</div>
-            <h3>Barras de Construcción</h3>
-            <p class="card__price">Aceros Arequipa <span>todas las medidas</span></p>
-            <a class="card__cta" target="_blank" rel="noopener"
-               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Barras%20de%20Construccion">
-              Cotizar Ahora →
-            </a>
-          </div>
+          <ul class="item-list">
+            <li class="item"><span>Barra de Construcción 1" x9m</span><a class="item-quote" data-product="Barra de Construcción 1&quot; x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 3/4" x9m</span><a class="item-quote" data-product="Barra de Construcción 3/4&quot; x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 5/8" x9m</span><a class="item-quote" data-product="Barra de Construcción 5/8&quot; x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 1/2" x9m</span><a class="item-quote" data-product="Barra de Construcción 1/2&quot; x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 3/8" x9m</span><a class="item-quote" data-product="Barra de Construcción 3/8&quot; x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 12mm x9m</span><a class="item-quote" data-product="Barra de Construcción 12mm x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 8mm x9m</span><a class="item-quote" data-product="Barra de Construcción 8mm x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 6mm x9m</span><a class="item-quote" data-product="Barra de Construcción 6mm x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+            <li class="item"><span>Barra de Construcción 4.7mm x9m</span><a class="item-quote" data-product="Barra de Construcción 4.7mm x9m, Marca: Aceros Arequipa">Cotizar</a></li>
+          </ul>
         </article>
 
-        <article class="card">
-          <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400" alt="Ladrillos Pirámide">
+        <!-- LADRILLOS -->
+        <article class="cat-block" data-cat="ladrillos">
+          <div class="cat-block__header">
+            <div class="cat-block__image">
+              <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400" alt="Ladrillos Lark">
+            </div>
+            <div class="cat-block__info">
+              <div class="card__tag">Marca: Lark</div>
+              <h3>Ladrillos</h3>
+              <p>Ladrillos para muro, techo y acabados en todas las medidas y tipos.</p>
+            </div>
           </div>
-          <div class="card__content">
-            <div class="card__tag">Estructurales</div>
-            <h3>Ladrillos Pirámide</h3>
-            <p class="card__price">Pandereta y King Kong <span>por millar</span></p>
-            <a class="card__cta" target="_blank" rel="noopener"
-               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Ladrillos">
-              Cotizar Ahora →
-            </a>
-          </div>
+          <ul class="item-list">
+            <li class="item"><span>Ladrillo King Kong 18 Huecos</span><a class="item-quote" data-product="Ladrillo King Kong 18 Huecos, Marca: Lark">Cotizar</a></li>
+            <li class="item"><span>Ladrillo Pandereta</span><a class="item-quote" data-product="Ladrillo Pandereta, Marca: Lark">Cotizar</a></li>
+            <li class="item"><span>Ladrillo Pastelero</span><a class="item-quote" data-product="Ladrillo Pastelero, Marca: Lark">Cotizar</a></li>
+            <li class="item"><span>Ladrillo Hueco 8 Liso</span><a class="item-quote" data-product="Ladrillo Hueco 8 Liso, Marca: Lark">Cotizar</a></li>
+            <li class="item"><span>Ladrillo Hueco 12 Liso</span><a class="item-quote" data-product="Ladrillo Hueco 12 Liso, Marca: Lark">Cotizar</a></li>
+            <li class="item"><span>Ladrillo Hueco 15 Acanalado</span><a class="item-quote" data-product="Ladrillo Hueco 15 Acanalado, Marca: Lark">Cotizar</a></li>
+            <li class="item"><span>Ladrillo Hueco 20 Liso</span><a class="item-quote" data-product="Ladrillo Hueco 20 Liso, Marca: Lark">Cotizar</a></li>
+          </ul>
         </article>
 
-        <article class="card">
-          <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=400" alt="Tubos PVC">
+        <!-- TUBERÍAS PVC -->
+        <article class="cat-block" data-cat="tuberia">
+          <div class="cat-block__header">
+            <div class="cat-block__image">
+              <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=400" alt="Tuberías PVC Pavco">
+            </div>
+            <div class="cat-block__info">
+              <div class="card__tag">Marca: Pavco</div>
+              <h3>Tuberías PVC</h3>
+              <p>Líneas de luz (SEL), agua a presión C10, CPVC y desagüe.</p>
+            </div>
           </div>
-          <div class="card__content">
-            <div class="card__tag">Instalaciones</div>
-            <h3>Tubos y Accesorios PVC</h3>
-            <p class="card__price">Agua, Desagüe y Luz <span>Pavco / Nicoll</span></p>
-            <a class="card__cta" target="_blank" rel="noopener"
-               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20cotizar%20Tuberias">
-              Cotizar Ahora →
-            </a>
-          </div>
-        </article>
 
-        <article class="card">
-          <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&q=80&w=400" alt="Herramientas">
-          </div>
-          <div class="card__content">
-            <div class="card__tag">Ferretería</div>
-            <h3>Herramientas y Equipos</h3>
-            <p class="card__price">Manuales y Eléctricas <span>profesionales</span></p>
-            <a class="card__cta" target="_blank" rel="noopener"
-               href="https://wa.me/51958345849?text=Hola%2C%20quiero%20consultar%20por%20herramientas">
-              Cotizar Ahora →
-            </a>
-          </div>
+          <p class="item-list__subtitle">Tubo Luz SEL</p>
+          <ul class="item-list">
+            <li class="item"><span>Tubo Luz SEL 1/2" x3m</span><a class="item-quote" data-product="Tubo Luz SEL 1/2&quot; x3m, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo Luz SEL 3/4" x3m</span><a class="item-quote" data-product="Tubo Luz SEL 3/4&quot; x3m, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo Luz SEL 1" x3m</span><a class="item-quote" data-product="Tubo Luz SEL 1&quot; x3m, Marca: Pavco">Cotizar</a></li>
+          </ul>
+
+          <p class="item-list__subtitle">Tubo Agua a Presión C10</p>
+          <ul class="item-list">
+            <li class="item"><span>Tubo 1/2" x5m C10</span><a class="item-quote" data-product="Tubo 1/2&quot; x5m C10, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo 3/4" x5m C10</span><a class="item-quote" data-product="Tubo 3/4&quot; x5m C10, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo 1" x5m C10</span><a class="item-quote" data-product="Tubo 1&quot; x5m C10, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo 1.1/2" x5m C10</span><a class="item-quote" data-product="Tubo 1.1/2&quot; x5m C10, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo 2" x5m C10</span><a class="item-quote" data-product="Tubo 2&quot; x5m C10, Marca: Pavco">Cotizar</a></li>
+          </ul>
+
+          <p class="item-list__subtitle">Tubo CPVC (Agua Caliente)</p>
+          <ul class="item-list">
+            <li class="item"><span>Tubo CPVC 1/2" x5m</span><a class="item-quote" data-product="Tubo CPVC 1/2&quot; x5m, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo CPVC 3/4" x5m</span><a class="item-quote" data-product="Tubo CPVC 3/4&quot; x5m, Marca: Pavco">Cotizar</a></li>
+          </ul>
+
+          <p class="item-list__subtitle">Tubo Desagüe</p>
+          <ul class="item-list">
+            <li class="item"><span>Tubo Desagüe 2" x3m</span><a class="item-quote" data-product="Tubo Desagüe 2&quot; x3m, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo Desagüe 3" x3m</span><a class="item-quote" data-product="Tubo Desagüe 3&quot; x3m, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo Desagüe 4" x3m</span><a class="item-quote" data-product="Tubo Desagüe 4&quot; x3m, Marca: Pavco">Cotizar</a></li>
+            <li class="item"><span>Tubo Desagüe 6" x5m</span><a class="item-quote" data-product="Tubo Desagüe 6&quot; x5m, Marca: Pavco">Cotizar</a></li>
+          </ul>
         </article>
 
       </div>
+
+      <p class="catalog__note">¿No encuentras lo que buscas? Tenemos más productos en tienda. <a class="inline-link" target="_blank" rel="noopener" href="https://wa.me/51958345849?text=Hola%2C%20quisiera%20saber%20si%20tienen%20disponible...">Pregúntanos por WhatsApp →</a></p>
     </div>
   </section>
 
@@ -149,6 +194,40 @@
         “La puntualidad de YABAR es lo que más valoro. Sus materiales son de primera y el asesoramiento es impecable.”
         <cite>— Luis Mendoza, Maestro de Obra en Vista Alegre</cite>
       </blockquote>
+    </div>
+  </section>
+
+  <!-- SEDES -->
+  <section class="sedes" id="sedes">
+    <div class="container">
+      <h2 class="section-title">Nuestras Sedes</h2>
+      <p class="section-sub">Atendemos con stock propio en Nasca y Acarí. Escríbenos a la sede más cercana a tu obra.</p>
+      <div class="sedes__grid">
+        <div class="sede-card">
+          <div class="card__tag">Sede Principal</div>
+          <h3>Nasca</h3>
+          <p class="sede-card__addr">Av. Bolognesi #123</p>
+          <div class="sede-card__actions">
+            <a class="btn btn--wa" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n%20(Sede%20Nasca)">
+              WhatsApp Nasca <span class="wa-icon"></span>
+            </a>
+            <a class="sede-card__tel" href="tel:+51958345849">+51 958 345 849</a>
+          </div>
+        </div>
+        <div class="sede-card">
+          <div class="card__tag">Sede Acarí</div>
+          <h3>Acarí</h3>
+          <p class="sede-card__addr">Calle Comercio #456</p>
+          <div class="sede-card__actions">
+            <a class="btn btn--wa" target="_blank" rel="noopener"
+               href="https://wa.me/51945531058?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n%20(Sede%20Acar%C3%AD)">
+              WhatsApp Acarí <span class="wa-icon"></span>
+            </a>
+            <a class="sede-card__tel" href="tel:+51945531058">+51 945 531 058</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -175,8 +254,9 @@
       </p>
     </div>
     <div class="footer__contact">
-      <a href="tel:+51958345849">+51 958 345 849</a>
-      <a href="tel:056256101">(056) 256-101</a>
+      <a href="tel:+51958345849">Nasca: +51 958 345 849</a>
+      <a href="tel:+51945531058">Acarí: +51 945 531 058</a>
+      <a href="tel:+5156256101">Fijo: (056) 256-101</a>
       <a href="mailto:contacto@yabar.com">contacto@yabar.com</a>
     </div>
   </div>
