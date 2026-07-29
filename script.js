@@ -11,7 +11,7 @@ window.addEventListener('scroll', () => {
 
 // ===== Carga de productos desde la API =====
 // Cambia esto por la URL real de tu backend una vez desplegado en Railway
-const API_URL = "https://TU-BACKEND.up.railway.app/api";
+const API_URL = "https://yabar-web.onrender.com/api";
 const WHATSAPP_NUMERO = "51958345849";
 
 async function cargarProductosPublicos() {
