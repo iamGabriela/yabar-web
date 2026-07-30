@@ -12,11 +12,29 @@
 </head>
 <body>
 
+<!-- BARRA DE CONTACTO -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__info">
+      <span>📍 Nasca, Ica — Perú</span>
+      <span>📞 (+51) 958 345 849</span>
+      <span>📞 (056) 256-101</span>
+    </div>
+    <a href="/admin.html" class="topbar__admin">🔒 Acceso Administrador</a>
+  </div>
+</div>
+
 <header class="header">
   <div class="container header__inner">
     <a href="#top" class="logo">
       <span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span>
     </a>
+
+    <form class="searchbar" id="searchbar" onsubmit="return false;">
+      <input type="text" id="search-input" placeholder="Busca cemento, fierro, pintura, maquinaria...">
+      <button type="submit" id="search-btn">🔍 Buscar</button>
+    </form>
+
     <nav class="nav">
       <a href="#servicios">Servicios</a>
       <a href="#productos">Productos</a>
@@ -46,22 +64,49 @@
         <a class="btn btn--ghost" href="#productos">Ver productos</a>
       </div>
     </div>
+
+    <div class="hero__stats">
+      <div class="stat">
+        <span class="stat__value">+15</span>
+        <span class="stat__label">Años de experiencia</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value">100%</span>
+        <span class="stat__label">Entrega en obra</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value">Nasca</span>
+        <span class="stat__label">e Ica — cobertura local</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value">24h</span>
+        <span class="stat__label">Respuesta garantizada</span>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICIOS -->
   <section class="strip" id="servicios">
     <div class="container strip__grid">
       <div class="strip__item">
+        <span class="strip__icon">🏗️</span>
         <span class="strip__num">Llegamos contigo</span>
         <p>Entregamos en obra. Rápido, como debe ser.</p>
       </div>
       <div class="strip__item">
+        <span class="strip__icon">⚙️</span>
         <span class="strip__num">Poder mecánico</span>
         <p>Cuando no puedes hacerlo a mano, nosotros tenemos la máquina.</p>
       </div>
       <div class="strip__item">
+        <span class="strip__icon">📦</span>
         <span class="strip__num">Todo para construir</span>
         <p>Lo que buscas, lo tenemos. Y si no, lo conseguimos.</p>
+      </div>
+      <div class="strip__item">
+        <span class="strip__icon">💬</span>
+        <span class="strip__num">Asesoría técnica</span>
+        <p>Te ayudamos a calcular cantidades y materiales.</p>
       </div>
     </div>
   </section>

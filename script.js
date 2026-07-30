@@ -11,7 +11,7 @@ window.addEventListener('scroll', () => {
 
 // ===== Carga de productos desde la API =====
 // Cambia esto por la URL real de tu backend una vez desplegado en Railway
-const API_URL = "https://yabar-web.onrender.com/api";
+const API_URL = "https://TU-BACKEND.up.railway.app/api";
 const WHATSAPP_NUMERO = "51958345849";
 
 async function cargarProductosPublicos() {
@@ -50,3 +50,16 @@ async function cargarProductosPublicos() {
 }
 
 cargarProductosPublicos();
+
+// ===== Buscador del header =====
+const searchForm = document.getElementById('searchbar');
+if (searchForm) {
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const query = document.getElementById('search-input').value.trim();
+    if (query) {
+      const mensaje = encodeURIComponent(`Hola Yabar, busco: ${query}`);
+      window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}`, '_blank');
+    }
+  });
+}
