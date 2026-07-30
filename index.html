@@ -16,23 +16,32 @@
 <div class="topbar">
   <div class="container topbar__inner">
     <div class="topbar__info">
-      <span>📍 Nasca, Ica — Perú</span>
-      <span>📞 (+51) 958 345 849</span>
-      <span>📞 (056) 256-101</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Nasca, Ica — Perú</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l1.01-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (+51) 958 345 849</span>
     </div>
-    <a href="/admin.html" class="topbar__admin">🔒 Acceso Administrador</a>
+    <a href="/admin.html" class="topbar__admin">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Acceso Administrador
+    </a>
   </div>
 </div>
 
-<header class="header">
+<header class="header" id="site-header">
   <div class="container header__inner">
+    <button class="hamburger" id="btn-hamburger" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
     <a href="#top" class="logo">
       <span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span>
     </a>
 
     <form class="searchbar" id="searchbar" onsubmit="return false;">
       <input type="text" id="search-input" placeholder="Busca cemento, fierro, pintura, maquinaria...">
-      <button type="submit" id="search-btn">🔍 Buscar</button>
+      <button type="submit" id="search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Buscar</span>
+      </button>
     </form>
 
     <nav class="nav">
@@ -40,47 +49,58 @@
       <a href="#productos">Productos</a>
       <a href="#confianza">Nosotros</a>
     </nav>
-    <a class="btn btn--wa header__cta" target="_blank" rel="noopener"
-       href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n">
-      Escríbenos <span class="wa-icon"></span>
-    </a>
+
+    <div class="header__actions">
+      <a href="/admin.html" class="icon-btn" title="Acceso Administrador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="btn btn--primary header__cta" target="_blank" rel="noopener"
+         href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">
+        Cotizar
+      </a>
+    </div>
   </div>
 </header>
+
+<!-- MENU OFF-CANVAS (mobile) -->
+<div class="offcanvas-backdrop" id="offcanvas-backdrop"></div>
+<aside class="offcanvas" id="offcanvas">
+  <div class="offcanvas__head">
+    <span class="logo"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></span>
+    <button id="btn-close-menu" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="offcanvas__nav">
+    <a href="#servicios">Servicios</a>
+    <a href="#productos">Productos</a>
+    <a href="#confianza">Nosotros</a>
+    <a href="/admin.html">Acceso Administrador</a>
+  </nav>
+  <div class="offcanvas__foot">
+    <a class="btn btn--primary" target="_blank" rel="noopener"
+       href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar" style="width:100%;justify-content:center;">
+      Cotizar por WhatsApp
+    </a>
+    <p>(+51) 958 345 849 · (056) 256-101</p>
+  </div>
+</aside>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__bgtext" aria-hidden="true">CONSTRUYE&nbsp;CONSTRUYE&nbsp;CONSTRUYE&nbsp;</div>
+    <div class="hero__overlay"></div>
     <div class="container hero__inner">
-      <p class="eyebrow">GENTE QUE CONSTRUYE — NASCA</p>
-      <h1 class="hero__title">No solo vendemos<br>materiales, también<br>somos parte de tu<span class="accent"> proyecto.</span></h1>
-      <p class="hero__sub">Ferretería, materiales de construcción y maquinaria con entrega directa en obra. Rápido, como debe ser.</p>
+      <p class="eyebrow">NASCA, PERÚ — GENTE QUE CONSTRUYE</p>
+      <h1 class="hero__title">No solo vendemos<br>materiales, también<span class="accent"> somos</span><br>parte de tu proyecto.</h1>
+      <p class="hero__sub">Ferretería, materiales de construcción y maquinaria con entrega directa en obra. Rápido, confiable, sin complicaciones.</p>
       <div class="hero__actions">
-        <a class="btn btn--primary" target="_blank" rel="noopener"
+        <a class="btn btn--primary btn--lg" target="_blank" rel="noopener"
            href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar%20materiales">
-          Cotizar por WhatsApp
+          Solicitar cotización
         </a>
-        <a class="btn btn--ghost" href="#productos">Ver productos</a>
-      </div>
-    </div>
-
-    <div class="hero__stats">
-      <div class="stat">
-        <span class="stat__value">+15</span>
-        <span class="stat__label">Años de experiencia</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value">100%</span>
-        <span class="stat__label">Entrega en obra</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value">Nasca</span>
-        <span class="stat__label">e Ica — cobertura local</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value">24h</span>
-        <span class="stat__label">Respuesta garantizada</span>
+        <a class="btn btn--ghost btn--lg" href="#productos">Ver catálogo</a>
       </div>
     </div>
   </section>
@@ -89,22 +109,22 @@
   <section class="strip" id="servicios">
     <div class="container strip__grid">
       <div class="strip__item">
-        <span class="strip__icon">🏗️</span>
+        <svg class="strip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
         <span class="strip__num">Llegamos contigo</span>
         <p>Entregamos en obra. Rápido, como debe ser.</p>
       </div>
       <div class="strip__item">
-        <span class="strip__icon">⚙️</span>
+        <svg class="strip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         <span class="strip__num">Poder mecánico</span>
         <p>Cuando no puedes hacerlo a mano, nosotros tenemos la máquina.</p>
       </div>
       <div class="strip__item">
-        <span class="strip__icon">📦</span>
+        <svg class="strip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         <span class="strip__num">Todo para construir</span>
         <p>Lo que buscas, lo tenemos. Y si no, lo conseguimos.</p>
       </div>
       <div class="strip__item">
-        <span class="strip__icon">💬</span>
+        <svg class="strip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         <span class="strip__num">Asesoría técnica</span>
         <p>Te ayudamos a calcular cantidades y materiales.</p>
       </div>

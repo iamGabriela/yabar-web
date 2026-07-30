@@ -63,3 +63,25 @@ if (searchForm) {
     }
   });
 }
+
+// ===== Menú off-canvas (hamburguesa) =====
+const btnHamburger = document.getElementById('btn-hamburger');
+const btnCloseMenu = document.getElementById('btn-close-menu');
+const offcanvas = document.getElementById('offcanvas');
+const offcanvasBackdrop = document.getElementById('offcanvas-backdrop');
+
+function abrirMenu() {
+  offcanvas.classList.add('is-open');
+  offcanvasBackdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function cerrarMenu() {
+  offcanvas.classList.remove('is-open');
+  offcanvasBackdrop.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+if (btnHamburger) btnHamburger.addEventListener('click', abrirMenu);
+if (btnCloseMenu) btnCloseMenu.addEventListener('click', cerrarMenu);
+if (offcanvasBackdrop) offcanvasBackdrop.addEventListener('click', cerrarMenu);
+document.querySelectorAll('.offcanvas__nav a').forEach(a => a.addEventListener('click', cerrarMenu));
