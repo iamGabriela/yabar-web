@@ -42,13 +42,10 @@ a{text-decoration:none;color:inherit;}
 }
 .logo__mark{
   background:var(--naranja);color:var(--negro);
-  width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:8px;font-size:.9rem;flex-shrink:0;
+  width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:6px;font-size:.9rem;
 }
-.logo__mark svg{width:60%;height:60%;}
-.logo__mark svg polygon{fill:currentColor;}
 .logo__dot{color:var(--naranja);}
-.footer__legal{font-size:.75rem;margin-top:2px;color:#5f5648;}
 .nav{display:flex;gap:28px;font-weight:600;font-size:.95rem;}
 .nav a:hover{color:var(--naranja-2);}
 .header__cta{white-space:nowrap;}
@@ -144,11 +141,10 @@ a{text-decoration:none;color:inherit;}
   border-radius:16px;
   overflow:hidden;
   display:flex;flex-direction:column;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  transition:transform .18s ease, box-shadow .18s ease;
   position:relative;
-  box-shadow:0 2px 8px rgba(22,16,12,.04);
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(22,16,12,.12);border-color:var(--naranja);}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(22,16,12,.1);}
 .card__img{
   height:150px;background:var(--crema);
   display:flex;align-items:center;justify-content:center;overflow:hidden;
@@ -158,7 +154,6 @@ a{text-decoration:none;color:inherit;}
 .card__img--empty span{
   font-family:var(--font-display);font-size:1.6rem;color:var(--piedra);letter-spacing:.05em;
 }
-.logo__mark--lg{width:48px;height:48px;border-radius:12px;}
 .card__body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1;}
 .card__tag{
   font-size:.72rem;font-weight:800;letter-spacing:.06em;
@@ -355,16 +350,10 @@ input:focus-visible,
 .searchbar button svg{width:16px;height:16px;}
 .searchbar button:hover{background:var(--naranja-2);}
 
-.header .nav a{color:rgba(255,255,255,.8);position:relative;padding-bottom:4px;}
-.header .nav a::after{
-  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
-  background:var(--naranja);transition:width .2s ease;
-}
+.header .nav a{color:rgba(255,255,255,.8);}
 .header .nav a:hover{color:var(--naranja);}
-.header .nav a:hover::after,
-.header .nav a.is-active::after{width:100%;}
 .header .nav a.is-active{color:var(--naranja);}
-.offcanvas__nav a.is-active{color:var(--naranja);border-left:3px solid var(--naranja);background:rgba(255,90,31,.06);}
+.offcanvas__nav a.is-active{color:var(--naranja);}
 
 /* ===== PAGE HERO (paginas internas) ===== */
 .page-hero{
@@ -446,13 +435,11 @@ input:focus-visible,
 .cat-card{
   background:#fff;border:1px solid var(--piedra);border-radius:14px;
   padding:32px 20px;display:flex;flex-direction:column;align-items:center;gap:14px;
-  text-align:center;transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  box-shadow:0 2px 8px rgba(22,16,12,.04);
+  text-align:center;transition:transform .15s ease, border-color .15s ease;
 }
-.cat-card svg{width:36px;height:36px;color:var(--naranja-2);transition:transform .2s ease;}
+.cat-card svg{width:36px;height:36px;color:var(--naranja-2);}
 .cat-card span{font-weight:700;font-size:.95rem;color:var(--negro);}
-.cat-card:hover{transform:translateY(-4px);border-color:var(--naranja);box-shadow:0 14px 32px rgba(22,16,12,.1);}
-.cat-card:hover svg{transform:scale(1.1);}
+.cat-card:hover{transform:translateY(-4px);border-color:var(--naranja);}
 
 /* ===== CONTACTO / MAPA ===== */
 .contacto{padding:90px 0;background:var(--piedra);}
