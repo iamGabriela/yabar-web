@@ -46,7 +46,7 @@ async function cargarProductosPublicos() {
       const badge = esNuevo ? '<span class="badge text-bg-warning card__badge">Nuevo</span>' : '';
       const imgHtml = p.imagenUrl
         ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
-        : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
+        : `<div class="card__img card__img--empty"><span class="logo__mark logo__mark--lg"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="18,14 38,14 54,44 47,54 34,54 18,26"/><polygon points="82,14 62,14 46,44 53,54 66,54 82,26"/><polygon points="42,50 58,50 58,88 42,88"/></svg></span></div>`;
       return `
         <article class="card">
           ${imgHtml}
@@ -133,24 +133,29 @@ if (searchForm) {
   });
 }
 
-// ===== Menú off-canvas (hamburguesa) =====
-const btnHamburger = document.getElementById('btn-hamburger');
-const btnCloseMenu = document.getElementById('btn-close-menu');
-const offcanvas = document.getElementById('offcanvas');
-const offcanvasBackdrop = document.getElementById('offcanvas-backdrop');
+// ===== Menú off-canvas (ahora manejado nativamente por Bootstrap Offcanvas) =====
+// El botón hamburguesa usa data-bs-toggle="offcanvas", no requiere JS propio.
 
-function abrirMenu() {
-  offcanvas.classList.add('is-open');
-  offcanvasBackdrop.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-function cerrarMenu() {
-  offcanvas.classList.remove('is-open');
-  offcanvasBackdrop.classList.remove('is-open');
-  document.body.style.overflow = '';
+// ===== Modo claro / oscuro =====
+const THEME_KEY = 'yabar_theme';
+
+function aplicarTema(tema) {
+  document.documentElement.setAttribute('data-theme', tema);
+  document.querySelectorAll('.theme-toggle, .theme-toggle--block').forEach(btn => {
+    btn.setAttribute('aria-label', tema === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+  });
 }
 
-if (btnHamburger) btnHamburger.addEventListener('click', abrirMenu);
-if (btnCloseMenu) btnCloseMenu.addEventListener('click', cerrarMenu);
-if (offcanvasBackdrop) offcanvasBackdrop.addEventListener('click', cerrarMenu);
-document.querySelectorAll('.offcanvas__nav a').forEach(a => a.addEventListener('click', cerrarMenu));
+function alternarTema() {
+  const actual = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  const nuevo = actual === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_KEY, nuevo);
+  aplicarTema(nuevo);
+}
+
+// El tema inicial ya se aplica en un script inline en el <head> (evita parpadeo).
+// Aquí solo sincronizamos las etiquetas aria y los listeners.
+aplicarTema(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+document.querySelectorAll('.theme-toggle, .theme-toggle--block').forEach(btn => {
+  btn.addEventListener('click', alternarTema);
+});

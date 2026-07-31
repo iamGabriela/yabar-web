@@ -2,11 +2,21 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('yabar_theme');
+    if(!t){ t = 'light'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <title>Nosotros | Yabar Ferretería</title>
 <meta name="description" content="Conoce a Yabar Ferretería, gente que construye en Nasca, Perú.">
@@ -25,12 +35,12 @@
 
 <header class="header" id="site-header">
   <div class="container header__inner">
-    <button class="hamburger" id="btn-hamburger" aria-label="Abrir menú">
+    <button class="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Abrir menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
 
     <a href="index.html" class="logo">
-      <span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span>
+      <span class="logo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="18,14 38,14 54,44 47,54 34,54 18,26"/><polygon points="82,14 62,14 46,44 53,54 66,54 82,26"/><polygon points="42,50 58,50 58,88 42,88"/></svg></span>YABAR<span class="logo__dot">.</span>
     </a>
 
     <form class="searchbar" id="searchbar" onsubmit="return false;">
@@ -50,6 +60,10 @@
     </nav>
 
     <div class="header__actions">
+      <button type="button" class="theme-toggle" id="btn-theme-toggle" aria-label="Cambiar a modo oscuro">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <a class="btn btn--primary header__cta" target="_blank" rel="noopener"
          href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">
         Cotizar
@@ -58,34 +72,38 @@
   </div>
 </header>
 
-<!-- MENU OFF-CANVAS (mobile) -->
-<div class="offcanvas-backdrop" id="offcanvas-backdrop"></div>
-<aside class="offcanvas" id="offcanvas">
-  <div class="offcanvas__head">
-    <span class="logo"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></span>
-    <button id="btn-close-menu" aria-label="Cerrar menú">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+<!-- MENU OFF-CANVAS (mobile, Bootstrap Offcanvas) -->
+<div class="offcanvas offcanvas-start offcanvas--yabar" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas-header">
+    <span class="logo" id="mobileMenuLabel"><span class="logo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="18,14 38,14 54,44 47,54 34,54 18,26"/><polygon points="82,14 62,14 46,44 53,54 66,54 82,26"/><polygon points="42,50 58,50 58,88 42,88"/></svg></span>YABAR<span class="logo__dot">.</span></span>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
   </div>
-  <nav class="offcanvas__nav">
-    <a href="index.html">Inicio</a>
+  <div class="offcanvas-body">
+    <nav class="offcanvas__nav">
+      <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
       <a href="productos.html">Productos</a>
       <a href="nosotros.html" class="is-active">Nosotros</a>
       <a href="contacto.html">Contacto</a>
-  </nav>
-  <div class="offcanvas__foot">
-    <a class="btn btn--primary" target="_blank" rel="noopener"
-       href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar" style="width:100%;justify-content:center;">
-      Cotizar por WhatsApp
-    </a>
-    <p>(+51) 958 345 849 · (056) 256-101</p>
+    </nav>
+    <div class="offcanvas__foot">
+      <a class="btn btn--primary" target="_blank" rel="noopener"
+         href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar" style="width:100%;justify-content:center;">
+        Cotizar por WhatsApp
+      </a>
+      <button type="button" class="theme-toggle--block" id="btn-theme-toggle-mobile" aria-label="Cambiar a modo oscuro">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span>Modo claro / oscuro</span>
+      </button>
+      <p>(+51) 958 345 849 · (056) 256-101</p>
+    </div>
   </div>
-</aside>
+</div>
 
 <main id="top">
 
-  <section class="page-hero">
+  <section class="page-hero page-hero--nosotros">
     <div class="container">
       <p class="eyebrow">GENTE QUE CONSTRUYE</p>
       <h1 class="page-hero__title">Sobre Yabar</h1>
@@ -148,8 +166,9 @@
 <footer class="footer">
   <div class="container footer__inner">
     <div>
-      <p class="logo logo--footer"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></p>
-      <p class="footer__addr">Av. Bolognesi #123, Nasca, Perú</p>
+      <p class="logo logo--footer"><span class="logo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="18,14 38,14 54,44 47,54 34,54 18,26"/><polygon points="82,14 62,14 46,44 53,54 66,54 82,26"/><polygon points="42,50 58,50 58,88 42,88"/></svg></span>YABAR<span class="logo__dot">.</span></p>
+      <p class="footer__addr">Carr. Interoceánica km 8450, Nasca 11401, Perú</p>
+      <p class="footer__legal">Negocios e Inversiones Yabar EIRL</p>
     </div>
     <div class="footer__contact">
       <a href="tel:+51958345849">(+51) 958 345 849</a>
