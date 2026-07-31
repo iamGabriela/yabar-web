@@ -30,13 +30,12 @@ async function cargarProductosPublicos() {
 
     contenedor.innerHTML = productos.map(p => {
       const mensaje = encodeURIComponent(`Hola, quiero cotizar ${p.nombre}`);
-      const precio = p.precio ? `S/ ${p.precio}` : 'Consultar';
-      const unidad = p.unidad ? `<span>${p.unidad}</span>` : '';
+      const unidad = p.unidad ? `<p class="card__unit">${p.unidad}</p>` : '';
       return `
         <article class="card">
           <div class="card__tag">${p.categoria || 'Producto'}</div>
           <h3>${p.nombre}</h3>
-          <p class="card__price">${precio} ${unidad}</p>
+          ${unidad}
           <a class="card__cta" target="_blank" rel="noopener"
              href="https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}">
             Cotizar →

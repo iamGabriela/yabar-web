@@ -151,6 +151,7 @@ a{text-decoration:none;color:inherit;}
 .card h3{font-size:1.15rem;margin-bottom:10px;line-height:1.25;}
 .card__price{font-size:.9rem;color:var(--marron-2);margin-bottom:20px;}
 .card__price span{color:#9a8f80;}
+.card__unit{font-size:.85rem;color:#9a8f80;margin-bottom:20px;}
 .card__cta{
   margin-top:auto;font-weight:700;color:var(--negro);
   border-top:1px solid var(--piedra);padding-top:14px;
@@ -269,6 +270,23 @@ a{text-decoration:none;color:inherit;}
 
 .header .nav a{color:rgba(255,255,255,.8);}
 .header .nav a:hover{color:var(--naranja);}
+.header .nav a.is-active{color:var(--naranja);}
+.offcanvas__nav a.is-active{color:var(--naranja);}
+
+/* ===== PAGE HERO (paginas internas) ===== */
+.page-hero{
+  background:var(--negro);color:var(--crema);
+  padding:70px 0 50px;
+}
+.page-hero__title{
+  font-family:var(--font-display);
+  font-size:clamp(2rem, 4vw, 3rem);
+  margin:14px 0 10px;
+}
+.page-hero__sub{color:var(--piedra);font-size:1rem;max-width:520px;}
+.strip--page{background:var(--crema);border-bottom:1px solid var(--piedra);}
+.strip--page .strip__item p{color:var(--marron-2);}
+.strip--page .strip__num{color:var(--negro);}
 
 .header__actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .icon-btn{
