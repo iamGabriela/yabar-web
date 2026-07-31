@@ -46,7 +46,7 @@ async function cargarProductosPublicos() {
       const badge = esNuevo ? '<span class="badge text-bg-warning card__badge">Nuevo</span>' : '';
       const imgHtml = p.imagenUrl
         ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
-        : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
+        : `<div class="card__img card__img--empty"><span class="logo__mark logo__mark--lg"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="18,14 38,14 54,44 47,54 34,54 18,26"/><polygon points="82,14 62,14 46,44 53,54 66,54 82,26"/><polygon points="42,50 58,50 58,88 42,88"/></svg></span></div>`;
       return `
         <article class="card">
           ${imgHtml}
