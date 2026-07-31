@@ -10,9 +10,9 @@ window.addEventListener('scroll', () => {
 });
 
 // ===== Carga de productos desde la API =====
-// Cambia esto por la URL real de tu backend una vez desplegado en Railway
 const API_URL = "https://yabar-web.onrender.com/api";
 const WHATSAPP_NUMERO = "51958345849";
+let PRODUCTOS_CACHE = [];
 
 async function cargarProductosPublicos() {
   const contenedor = document.getElementById('cards-productos');
@@ -22,33 +22,86 @@ async function cargarProductosPublicos() {
     const res = await fetch(`${API_URL}/productos`);
     if (!res.ok) throw new Error('Error al traer productos');
     const productos = await res.json();
+    PRODUCTOS_CACHE = productos;
 
     if (productos.length === 0) {
       contenedor.innerHTML = '<p style="grid-column:1/-1;color:#9a8f80;">Pronto agregaremos productos aquí.</p>';
       return;
     }
 
-    contenedor.innerHTML = productos.map(p => {
-      const mensaje = encodeURIComponent(`Hola, quiero cotizar ${p.nombre}`);
+    contenedor.innerHTML = productos.map((p, i) => {
       const unidad = p.unidad ? `<p class="card__unit">${p.unidad}</p>` : '';
+      const esNuevo = i < 3; // primeros 3 como demo de "Nuevo", ajustable a futuro
+      const badge = esNuevo ? '<span class="badge text-bg-warning card__badge">Nuevo</span>' : '';
       return `
         <article class="card">
+          ${badge}
           <div class="card__tag">${p.categoria || 'Producto'}</div>
           <h3>${p.nombre}</h3>
           ${unidad}
-          <a class="card__cta" target="_blank" rel="noopener"
-             href="https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}">
-            Cotizar →
-          </a>
+          <button type="button" class="card__cta card__cta--btn" data-producto-id="${p.id}">
+            Ver detalle →
+          </button>
         </article>`;
     }).join('');
+
+    document.querySelectorAll('[data-producto-id]').forEach(btn => {
+      btn.addEventListener('click', () => abrirModalProducto(btn.dataset.productoId));
+    });
 
   } catch (e) {
     contenedor.innerHTML = '<p style="grid-column:1/-1;color:#9a8f80;">No se pudo cargar el catálogo. Escríbenos por WhatsApp.</p>';
   }
 }
 
+// ===== Modal de detalle de producto (Bootstrap) =====
+function abrirModalProducto(id) {
+  const p = PRODUCTOS_CACHE.find(x => String(x.id) === String(id));
+  if (!p) return;
+
+  const modalEl = document.getElementById('producto-modal');
+  if (!modalEl) return;
+
+  modalEl.querySelector('.modal-title').textContent = p.nombre;
+  modalEl.querySelector('.modal-body-cat').textContent = p.categoria || 'Producto';
+  modalEl.querySelector('.modal-body-desc').textContent = p.descripcion || 'Consulta disponibilidad y detalles con nuestro equipo.';
+  modalEl.querySelector('.modal-body-unit').textContent = p.unidad ? `Presentación: ${p.unidad}` : '';
+
+  const img = modalEl.querySelector('.modal-body-img');
+  if (p.imagenUrl) {
+    img.src = p.imagenUrl;
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
+  }
+
+  const mensaje = encodeURIComponent(`Hola, quiero cotizar ${p.nombre}`);
+  modalEl.querySelector('.modal-body-cta').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}`;
+
+  const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
+  bsModal.show();
+}
+
 cargarProductosPublicos();
+
+// ===== Tooltips de Bootstrap =====
+document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+  new bootstrap.Tooltip(el);
+});
+
+// ===== Toast: copiar teléfono =====
+document.querySelectorAll('[data-copy]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const texto = btn.dataset.copy;
+    navigator.clipboard.writeText(texto).then(() => {
+      const toastEl = document.getElementById('copy-toast');
+      if (toastEl) {
+        const toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+        toast.show();
+      }
+    });
+  });
+});
 
 // ===== Buscador del header =====
 const searchForm = document.getElementById('searchbar');
