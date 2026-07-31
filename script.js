@@ -18,6 +18,17 @@ async function cargarProductosPublicos() {
   const contenedor = document.getElementById('cards-productos');
   if (!contenedor) return;
 
+  // Skeleton mientras carga
+  contenedor.innerHTML = Array.from({length: 8}).map(() => `
+    <div class="card-skeleton">
+      <div class="card-skeleton__img"></div>
+      <div class="card-skeleton__body">
+        <div class="card-skeleton__line card-skeleton__line--short"></div>
+        <div class="card-skeleton__line"></div>
+        <div class="card-skeleton__line card-skeleton__line--short"></div>
+      </div>
+    </div>`).join('');
+
   try {
     const res = await fetch(`${API_URL}/productos`);
     if (!res.ok) throw new Error('Error al traer productos');
@@ -25,23 +36,29 @@ async function cargarProductosPublicos() {
     PRODUCTOS_CACHE = productos;
 
     if (productos.length === 0) {
-      contenedor.innerHTML = '<p style="grid-column:1/-1;color:#9a8f80;">Pronto agregaremos productos aquí.</p>';
+      contenedor.innerHTML = '<p style="grid-column:1/-1;color:#7d7263;text-align:center;padding:40px 0;">Estamos cargando el catálogo. Mientras tanto, escríbenos por WhatsApp y te ayudamos directo.</p>';
       return;
     }
 
     contenedor.innerHTML = productos.map((p, i) => {
       const unidad = p.unidad ? `<p class="card__unit">${p.unidad}</p>` : '';
-      const esNuevo = i < 3; // primeros 3 como demo de "Nuevo", ajustable a futuro
+      const esNuevo = i < 3;
       const badge = esNuevo ? '<span class="badge text-bg-warning card__badge">Nuevo</span>' : '';
+      const imgHtml = p.imagenUrl
+        ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
+        : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
       return `
         <article class="card">
-          ${badge}
-          <div class="card__tag">${p.categoria || 'Producto'}</div>
-          <h3>${p.nombre}</h3>
-          ${unidad}
-          <button type="button" class="card__cta card__cta--btn" data-producto-id="${p.id}">
-            Ver detalle →
-          </button>
+          ${imgHtml}
+          <div class="card__body">
+            ${badge}
+            <div class="card__tag">${p.categoria || 'Producto'}</div>
+            <h3>${p.nombre}</h3>
+            ${unidad}
+            <button type="button" class="card__cta card__cta--btn" data-producto-id="${p.id}">
+              Ver detalle <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </article>`;
     }).join('');
 
@@ -50,7 +67,7 @@ async function cargarProductosPublicos() {
     });
 
   } catch (e) {
-    contenedor.innerHTML = '<p style="grid-column:1/-1;color:#9a8f80;">No se pudo cargar el catálogo. Escríbenos por WhatsApp.</p>';
+    contenedor.innerHTML = '<p style="grid-column:1/-1;color:#7d7263;text-align:center;padding:40px 0;">No pudimos cargar el catálogo ahora mismo. Escríbenos por WhatsApp y te ayudamos directo con lo que buscas.</p>';
   }
 }
 
