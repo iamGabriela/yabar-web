@@ -222,6 +222,7 @@ a{text-decoration:none;color:inherit;}
   display:flex;align-items:center;justify-content:space-between;
   padding:8px 24px;
 }
+.topbar__inner--center{justify-content:center;}
 .topbar__info{display:flex;gap:20px;flex-wrap:wrap;}
 .topbar__info span{display:flex;align-items:center;gap:6px;}
 .topbar__admin{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.45);}
