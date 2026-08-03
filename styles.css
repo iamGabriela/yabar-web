@@ -69,6 +69,7 @@ a{text-decoration:none;color:inherit;}
   border-radius:6px;font-size:.9rem;
 }
 .logo__dot{color:var(--naranja);}
+.logo__img{height:26px;width:auto;display:block;}
 .nav{display:flex;gap:28px;font-weight:600;font-size:.95rem;}
 .nav a:hover{color:var(--naranja-2);}
 .header__cta{white-space:nowrap;}
@@ -485,6 +486,68 @@ input:focus-visible,
 }
 .contacto__map iframe{width:100%;height:100%;min-height:320px;display:block;}
 
+/* ===== HERO: collage de productos reales ===== */
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}
+.collage{position:relative;height:440px;}
+.collage-item{
+  position:absolute;border-radius:12px;overflow:hidden;background:var(--blanco);
+  box-shadow:0 16px 36px rgba(0,0,0,.35);border:3px solid var(--naranja);
+}
+.collage-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.collage-item__tag{
+  position:absolute;bottom:0;left:0;background:var(--naranja);color:var(--negro);
+  font-family:var(--font-display);font-size:.75rem;padding:5px 12px;border-radius:0 8px 0 8px;
+}
+.collage-item--ghost{border-color:rgba(255,90,31,.35);opacity:.55;filter:grayscale(.2);}
+.c1{width:230px;height:230px;top:0;right:40px;transform:rotate(3deg);z-index:3;}
+.c2{width:190px;height:190px;top:145px;right:250px;transform:rotate(-4deg);z-index:2;}
+.c3{width:170px;height:170px;top:245px;right:10px;transform:rotate(-5deg);z-index:1;}
+.c4{width:150px;height:150px;top:20px;right:290px;transform:rotate(6deg);z-index:0;}
+
+/* ===== CATEGORIAS: foto + icono ===== */
+.cat-card{overflow:hidden;padding:0 0 20px;}
+.cat-card__img{
+  width:100%;height:110px;background-size:cover;background-position:center;position:relative;display:block;
+}
+.cat-card__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(22,16,12,0) 45%, rgba(22,16,12,.35));}
+.cat-card svg{margin-top:16px;}
+
+/* ===== COMO FUNCIONA ===== */
+.como-funciona{background:var(--piedra);padding:90px 0;}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
+.paso{text-align:left;}
+.paso__num{
+  font-family:var(--font-display);font-size:1.3rem;
+  width:46px;height:46px;border-radius:50%;background:var(--naranja);color:var(--negro);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+}
+.paso h3{font-size:1.15rem;margin-bottom:8px;}
+.paso p{color:var(--marron-2);font-size:.95rem;}
+
+/* ===== COBERTURA ===== */
+.cobertura{background:var(--brand-dark);color:var(--brand-light);padding:90px 0;}
+.cobertura .section-title{color:var(--brand-light);}
+.cobertura__sub{color:rgba(243,238,231,.62);max-width:520px;margin:-28px 0 40px;}
+.cobertura__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.cobertura__item{
+  border:1px solid rgba(243,238,231,.14);border-radius:14px;padding:26px 20px;
+  transition:border-color .15s ease, transform .15s ease;
+}
+.cobertura__item:hover{border-color:var(--naranja);transform:translateY(-4px);}
+.cobertura__item svg{width:26px;height:26px;color:var(--naranja);margin-bottom:14px;}
+.cobertura__item h3{font-size:1.05rem;margin-bottom:6px;}
+.cobertura__item p{font-size:.85rem;color:rgba(243,238,231,.55);}
+
+/* ===== CTA FINAL ===== */
+.cta-final{background:var(--naranja);padding:70px 0;text-align:center;}
+.cta-final h2{
+  font-family:var(--font-display);color:var(--negro);
+  font-size:clamp(1.6rem, 3.4vw, 2.4rem);margin-bottom:14px;
+}
+.cta-final p{color:rgba(22,16,12,.75);margin-bottom:28px;font-size:1.02rem;}
+.cta-final .btn--ghost{border-color:var(--negro);color:var(--negro);}
+.cta-final .btn--ghost:hover{background:var(--negro);color:var(--crema);}
+
 /* ===== RESPONSIVE additions ===== */
 @media (max-width:900px){
   .nav{display:none;}
@@ -497,6 +560,10 @@ input:focus-visible,
   .contacto__grid{grid-template-columns:1fr;}
   .footer__inner{flex-direction:column;}
   .footer__contact{text-align:left;}
+  .hero__grid{grid-template-columns:1fr;}
+  .collage{display:none;}
+  .pasos{grid-template-columns:1fr;gap:36px;}
+  .cobertura__grid{grid-template-columns:repeat(2,1fr);}
 }
 @media (max-width:560px){
   .strip__grid{grid-template-columns:1fr;}
@@ -508,6 +575,7 @@ input:focus-visible,
   .hero__bgtext{font-size:6rem;}
   .whatsapp-float{width:64px;height:64px;bottom:18px;right:18px;box-shadow:0 6px 22px rgba(37,211,102,.45);}
   #testimonios-carousel .carousel-item{padding:0 34px;}
+  .cobertura__grid{grid-template-columns:1fr;}
 }
 
 @media (prefers-reduced-motion: reduce){

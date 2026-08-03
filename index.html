@@ -3,125 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Propuesta catálogo real | Yabar</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-:root{
-  --marron:#2B1C14;--marron-2:#4A3327;--naranja:#FF5A1F;--naranja-2:#E8480F;
-  --crema:#F3EEE7;--piedra:#DCD3C6;--negro:#16100C;--blanco:#FFFFFF;
-  --font-display:'Archivo Black',sans-serif;--font-body:'Archivo',sans-serif;
-}
-body{font-family:var(--font-body);background:#eee;}
-.label{
-  position:sticky;top:0;z-index:50;background:#111;color:#fff;padding:14px 24px;
-  font-family:var(--font-display);font-size:1rem;letter-spacing:.03em;
-}
-.font-display{font-family:var(--font-display);}
-
-/* ===== HERO tipo catalogo/volante ===== */
-.hero-catalogo{background:var(--negro);color:var(--crema);padding:60px 0 0;position:relative;overflow:hidden;}
-.hero-topstrip{background:var(--naranja);color:var(--negro);text-align:center;padding:9px;font-weight:800;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;}
-.hc-eyebrow{color:var(--naranja);font-weight:800;letter-spacing:.16em;font-size:.72rem;text-transform:uppercase;margin-bottom:18px;}
-.hc-title{font-family:var(--font-display);font-size:clamp(2.1rem,4.4vw,3.3rem);line-height:1.04;margin-bottom:20px;}
-.hc-title span{color:var(--naranja);}
-.hc-sub{color:rgba(243,238,231,.6);max-width:420px;margin-bottom:28px;font-size:.98rem;}
-
-/* Collage de productos reales, tipo volante recortado */
-.collage{position:relative;height:460px;}
-.collage-item{
-  position:absolute;border-radius:10px;overflow:hidden;background:#fff;
-  box-shadow:0 14px 34px rgba(0,0,0,.4);border:4px solid var(--negro);
-}
-.collage-item img{width:100%;height:100%;object-fit:cover;display:block;}
-.tag{
-  position:absolute;bottom:-1px;left:-1px;background:var(--naranja);color:var(--negro);
-  font-family:var(--font-display);font-size:.8rem;padding:4px 10px;border-radius:0 8px 0 8px;
-}
-.c1{width:230px;height:230px;top:0;right:60px;transform:rotate(3deg);z-index:3;}
-.c2{width:190px;height:190px;top:150px;right:270px;transform:rotate(-4deg);z-index:2;}
-.c3{width:170px;height:170px;top:250px;right:20px;transform:rotate(-5deg);z-index:1;}
-
-/* franja inferior tipo "categorias/ofertas" con productos reales pequenos */
-.mini-strip{background:var(--marron);padding:0;}
-.mini-item{
-  display:flex;align-items:center;gap:14px;padding:18px 22px;border-right:1px solid rgba(255,255,255,.08);
-}
-.mini-item img{width:52px;height:52px;object-fit:cover;border-radius:8px;background:#fff;flex-shrink:0;}
-.mini-item b{display:block;font-size:.85rem;color:var(--crema);}
-.mini-item span{font-size:.72rem;color:rgba(243,238,231,.5);}
-
-.btn-yabar{
-  background:var(--naranja);color:#fff;font-weight:800;text-transform:uppercase;
-  font-size:.85rem;letter-spacing:.04em;padding:.9rem 1.9rem;border-radius:6px;border:none;
-}
-.btn-yabar-outline-light{
-  border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;text-transform:uppercase;
-  font-size:.85rem;letter-spacing:.04em;padding:.8rem 1.7rem;border-radius:6px;background:transparent;
-}
-
-@media (max-width:820px){
-  .collage{display:none;}
-}
-</style>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="images/brand/favicon.ico">
+<link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+<title>Yabar Ferretería | Materiales de construcción en Nasca, Perú</title>
+<meta name="description" content="Cemento, fierro, ladrillo, tuberías y maquinaria con entrega directa en obra. Nasca, Acarí, Chala y Lomas, Perú.">
 </head>
 <body>
 
-<div class="label">CONCEPTO REAL — Collage con tus productos reales, estilo catálogo/volante</div>
+<!-- BARRA DE CONTACTO -->
+<div class="topbar">
+  <div class="container topbar__inner topbar__inner--center">
+    <div class="topbar__info">
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Nasca, Ica — Perú</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l1.01-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (+51) 958 345 849</span>
+    </div>
+  </div>
+</div>
 
-<section class="hero-catalogo">
-  <div class="hero-topstrip">Entrega directa en obra — Nasca y Acarí</div>
-  <div class="container py-5">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <p class="hc-eyebrow">Nasca, Perú — Gente que construye</p>
-        <h1 class="hc-title">No solo vendemos<br>materiales, también<br><span>somos parte de tu proyecto.</span></h1>
-        <p class="hc-sub">Cemento, fierro, ladrillo, tuberías y maquinaria. Todo en un solo lugar, con entrega directa en obra.</p>
-        <div class="d-flex gap-3 flex-wrap">
-          <button class="btn-yabar">Cotizar por WhatsApp</button>
-          <button class="btn-yabar-outline-light">Ver catálogo completo</button>
+<header class="header" id="site-header">
+  <div class="container header__inner">
+    <button class="hamburger" id="btn-hamburger" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <a href="index.html" class="logo">
+      <img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img">
+    </a>
+
+    <form class="searchbar" id="searchbar" onsubmit="return false;">
+      <input type="text" id="search-input" placeholder="Busca cemento, fierro, pintura, maquinaria...">
+      <button type="submit" id="search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Buscar</span>
+      </button>
+    </form>
+
+    <nav class="nav">
+      <a href="index.html" class="is-active">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="productos.html">Productos</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="header__actions">
+      <button type="button" id="btn-theme" class="icon-btn" title="Cambiar tema" aria-label="Cambiar entre modo claro y oscuro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn--primary header__cta" target="_blank" rel="noopener"
+         href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">
+        Cotizar
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- MENU OFF-CANVAS (mobile) -->
+<div class="offcanvas-backdrop" id="offcanvas-backdrop"></div>
+<aside class="offcanvas" id="offcanvas">
+  <div class="offcanvas__head">
+    <span class="logo"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></span>
+    <button id="btn-close-menu" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="offcanvas__nav">
+    <a href="index.html" class="is-active">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="productos.html">Productos</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <div class="offcanvas__foot">
+    <a class="btn btn--primary" target="_blank" rel="noopener"
+       href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar" style="width:100%;justify-content:center;">
+      Cotizar por WhatsApp
+    </a>
+    <p>(+51) 958 345 849 · (056) 256-101</p>
+  </div>
+</aside>
+
+<main id="top">
+
+  <!-- ===== HERO: collage de productos reales ===== -->
+  <section class="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__grid">
+      <div class="hero__inner">
+        <p class="eyebrow">NASCA, PERÚ — GENTE QUE CONSTRUYE</p>
+        <h1 class="hero__title">No solo vendemos materiales, también <span class="accent">somos parte de tu proyecto.</span></h1>
+        <p class="hero__sub">Cemento, fierro, ladrillo, tuberías y maquinaria. Todo en un solo lugar, con entrega directa en obra.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" target="_blank" rel="noopener"
+             href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">Cotizar por WhatsApp</a>
+          <a class="btn btn--ghost btn--lg" href="productos.html">Ver catálogo completo</a>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="collage">
-          <div class="collage-item c1">
-            <img src="https://yabar-web.vercel.app/images/productos/ladrillo-king-kong-18-huecos-lark.png" alt="Ladrillo King Kong">
-            <span class="tag">Ladrillo</span>
+
+      <div class="collage">
+        <div class="collage-item collage-item--ghost c4">
+          <img src="images/productos/ladrillo-pastelero-lark.png" alt="Ladrillo pastelero">
+        </div>
+        <div class="collage-item c1">
+          <img src="images/productos/ladrillo-king-kong-18-huecos-lark.png" alt="Ladrillo King Kong 18 huecos">
+          <span class="collage-item__tag">Ladrillo</span>
+        </div>
+        <div class="collage-item c2">
+          <img src="images/productos/barra-de-construccion-1x9m-aceros-arequipa.png" alt="Barra de construcción 1 x 9m">
+          <span class="collage-item__tag">Fierro</span>
+        </div>
+        <div class="collage-item c3">
+          <img src="images/productos/tubo-2-x5m-c10-pavco.webp" alt="Tubo PVC 2 x 5m">
+          <span class="collage-item__tag">Tubería</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FRANJA DE CONFIANZA ===== -->
+  <section class="strip">
+    <div class="container strip__grid">
+      <div class="strip__item">
+        <span class="strip__num">+10 años</span>
+        <p>Operando como ferretería de confianza en Nasca.</p>
+      </div>
+      <div class="strip__item">
+        <span class="strip__num">4 zonas</span>
+        <p>Entregamos en Nasca, Acarí, Chala y Lomas.</p>
+      </div>
+      <div class="strip__item">
+        <span class="strip__num">Entrega en obra</span>
+        <p>Sin que tengas que movilizarte a buscar nada.</p>
+      </div>
+      <div class="strip__item">
+        <span class="strip__num">Stock real</span>
+        <p>Lo que ves en el catálogo, lo tenemos en almacén.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIAS ===== -->
+  <section class="categorias">
+    <div class="container">
+      <h2 class="section-title">Explora por categoría</h2>
+      <div class="cat-grid">
+        <a href="productos.html" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/hero-obrero.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span>Ferretería</span>
+        </a>
+        <a href="productos.html" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/rebar-stack.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+          <span>Construcción</span>
+        </a>
+        <a href="productos.html" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/cemento-obra.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Maquinaria</span>
+        </a>
+        <a href="productos.html" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/equipo-tienda.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Acabados</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DESTACADOS ===== -->
+  <section class="productos">
+    <div class="container">
+      <h2 class="section-title">Lo más pedido</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card__img"><img src="images/productos/ladrillo-king-kong-18-huecos-lark.png" alt="Ladrillo King Kong 18 huecos" loading="lazy"></div>
+          <div class="card__body">
+            <span class="card__tag">Ladrillo</span>
+            <h3>Ladrillo King Kong 18 huecos</h3>
+            <p class="card__unit">El millar</p>
+            <a href="productos.html" class="card__cta--btn">Ver detalle <span>→</span></a>
           </div>
-          <div class="collage-item c2">
-            <img src="https://yabar-web.vercel.app/images/productos/barra-de-construccion-1x9m-aceros-arequipa.png" alt="Barra de construcción">
-            <span class="tag">Fierro</span>
+        </div>
+        <div class="card">
+          <div class="card__img"><img src="images/productos/barra-de-construccion-1-2-x9m-aceros-arequipa.png" alt="Barra de construcción 1/2 x 9m" loading="lazy"></div>
+          <div class="card__body">
+            <span class="card__tag">Fierro de construcción</span>
+            <h3>Barra de Construcción 1/2" x 9m</h3>
+            <p class="card__unit">La unidad</p>
+            <a href="productos.html" class="card__cta--btn">Ver detalle <span>→</span></a>
           </div>
-          <div class="collage-item c3">
-            <img src="https://yabar-web.vercel.app/images/productos/tubo-2-x5m-c10-pavco.webp" alt="Tubo PVC">
-            <span class="tag">Tubería</span>
+        </div>
+        <div class="card">
+          <div class="card__img"><img src="images/productos/tubo-desague-4-x3m-pavco.webp" alt="Tubo de desagüe 4 x 3m" loading="lazy"></div>
+          <div class="card__body">
+            <span class="card__tag">Tubería</span>
+            <h3>Tubo Desagüe 4" x 3m</h3>
+            <p class="card__unit">La unidad</p>
+            <a href="productos.html" class="card__cta--btn">Ver detalle <span>→</span></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__img"><img src="images/productos/ladrillo-pandereta-lark.png" alt="Ladrillo pandereta" loading="lazy"></div>
+          <div class="card__body">
+            <span class="card__tag">Ladrillo</span>
+            <h3>Ladrillo Pandereta</h3>
+            <p class="card__unit">El millar</p>
+            <a href="productos.html" class="card__cta--btn">Ver detalle <span>→</span></a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="mini-strip">
-    <div class="row g-0">
-      <div class="col-6 col-md-3 mini-item">
-        <img src="https://yabar-web.vercel.app/images/productos/ladrillo-pandereta-lark.png" alt="Ladrillo pandereta">
-        <div><b>Ladrillos</b><span>Todo tipo y medida</span></div>
-      </div>
-      <div class="col-6 col-md-3 mini-item">
-        <img src="https://yabar-web.vercel.app/images/productos/tubo-desague-4-x3m-pavco.webp" alt="Tubo desagüe">
-        <div><b>Tuberías</b><span>Agua, luz y desagüe</span></div>
-      </div>
-      <div class="col-6 col-md-3 mini-item">
-        <img src="https://yabar-web.vercel.app/images/productos/barra-de-construccion-1-2-x9m-aceros-arequipa.png" alt="Fierro construcción">
-        <div><b>Fierro</b><span>Todo diámetro</span></div>
-      </div>
-      <div class="col-6 col-md-3 mini-item" style="border-right:none;">
-        <img src="https://yabar-web.vercel.app/images/productos/ladrillo-hueco-20-liso-lark.jpg" alt="Ladrillo hueco">
-        <div><b>Maquinaria</b><span>Por día o proyecto</span></div>
+  <!-- ===== COMO FUNCIONA ===== -->
+  <section class="como-funciona">
+    <div class="container">
+      <h2 class="section-title">Cómo funciona</h2>
+      <div class="pasos">
+        <div class="paso">
+          <span class="paso__num">1</span>
+          <h3>Cotiza por WhatsApp</h3>
+          <p>Cuéntanos qué necesitas y para cuándo. Te respondemos con precio y disponibilidad al toque.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__num">2</span>
+          <h3>Confirmamos stock</h3>
+          <p>Te asesoramos con cantidades y armamos tu pedido según lo que tu obra realmente necesita.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__num">3</span>
+          <h3>Entregamos en tu obra</h3>
+          <p>Llevamos el material directo al frente de trabajo, sin que tengas que movilizarte.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ===== COBERTURA ===== -->
+  <section class="cobertura">
+    <div class="container">
+      <h2 class="section-title">Dónde entregamos</h2>
+      <p class="cobertura__sub">Cruzamos las fronteras de Nasca para llevarte todo lo que necesitas para la construcción.</p>
+      <div class="cobertura__grid">
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Nasca</h3>
+          <p>Nuestra base de operaciones.</p>
+        </div>
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Acarí</h3>
+          <p>Entrega directa en obra.</p>
+        </div>
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Chala</h3>
+          <p>De Nasca a la costa.</p>
+        </div>
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Lomas</h3>
+          <p>Cada obra es única, cada cliente también.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIOS ===== -->
+  <section class="confianza" id="confianza">
+    <div class="container confianza__inner">
+      <div id="testimonios-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <blockquote>
+              "Con YABAR terminé mi obra a tiempo. Me asesoraron desde los planos hasta el último enchapado."
+              <cite>— Luis Mendoza, maestro de obra, Vista Alegre</cite>
+            </blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote>
+              "Siempre encuentro lo que necesito, y si no lo tienen, me ayudan a conseguirlo rápido."
+              <cite>— Cliente frecuente, Nasca</cite>
+            </blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote>
+              "La entrega directa en obra me ahorra tiempo y viajes. Gran servicio."
+              <cite>— Cliente frecuente, Acarí</cite>
+            </blockquote>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonios-carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonios-carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>¿Listo para tu próxima obra?</h2>
+      <p>Cotiza ahora y recibe tus materiales directo en obra.</p>
+      <div class="hero__actions" style="justify-content:center;">
+        <a class="btn btn--lg" style="background:var(--negro);color:var(--crema);" target="_blank" rel="noopener"
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">Cotizar por WhatsApp</a>
+        <a class="btn btn--ghost btn--lg" href="productos.html">Ver catálogo completo</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <p class="logo logo--footer"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></p>
+      <p class="footer__addr">Av. Bolognesi #123, Nasca, Perú</p>
+    </div>
+    <div class="footer__contact">
+      <a href="tel:+51958345849">(+51) 958 345 849</a>
+      <a href="tel:056256101">(056) 256-101</a>
+      <a href="mailto:contacto@yabar.com">contacto@yabar.com</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n"
+   target="_blank" rel="noopener" class="whatsapp-float" aria-label="Escribir por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="white"><path d="M16.001 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.7 4.7 1.9 6.7L3 29l7-1.9c1.9 1.1 4.1 1.6 6 1.6 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.7c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.2 1.1 1.1-4.1-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.7 0-5.7 4.6-10.3 10.3-10.3 5.7 0 10.3 4.6 10.3 10.3.4 5.8-4.2 10.8-9.9 10.8zm5.6-7.7c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
