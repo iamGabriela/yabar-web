@@ -8,8 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="images/brand/favicon.ico">
+<link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
 <title>Productos | Yabar Ferretería</title>
-<meta name="description" content="Catálogo de productos de Yabar Ferretería en Nasca: materiales de construcción, ladrillos, tuberías, fierro y más.">
+<meta name="description" content="Catálogo de productos de Yabar Ferretería en Nasca: cemento, fierro, ladrillos, tuberías y más. Consulta disponibilidad y cotiza por WhatsApp.">
 </head>
 <body>
 
@@ -30,7 +32,7 @@
     </button>
 
     <a href="index.html" class="logo">
-      <span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span>
+      <img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img">
     </a>
 
     <form class="searchbar" id="searchbar" onsubmit="return false;">
@@ -65,17 +67,17 @@
 <div class="offcanvas-backdrop" id="offcanvas-backdrop"></div>
 <aside class="offcanvas" id="offcanvas">
   <div class="offcanvas__head">
-    <span class="logo"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></span>
+    <span class="logo"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></span>
     <button id="btn-close-menu" aria-label="Cerrar menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
   <nav class="offcanvas__nav">
     <a href="index.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="productos.html" class="is-active">Productos</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contacto</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="productos.html" class="is-active">Productos</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
   </nav>
   <div class="offcanvas__foot">
     <a class="btn btn--primary" target="_blank" rel="noopener"
@@ -88,18 +90,92 @@
 
 <main id="top">
 
-  <section class="page-hero">
+  <!-- ===== HERO CON IMAGEN ===== -->
+  <section class="page-hero page-hero--img" style="background-image:url('images/site/rebar-stack.jpg')">
+    <div class="page-hero__overlay"></div>
     <div class="container">
       <p class="eyebrow">CATÁLOGO</p>
-      <h1 class="page-hero__title">Nuestros productos</h1>
-      <p class="page-hero__sub">Consulta disponibilidad y cotiza directo por WhatsApp.</p>
+      <h1 class="page-hero__title">Todo lo que tu obra <span class="accent">necesita, en un solo lugar.</span></h1>
+      <p class="page-hero__sub">Cemento, fierro, ladrillo, tuberías, acabados y más. Consulta disponibilidad y cotiza directo por WhatsApp.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" target="_blank" rel="noopener"
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">Cotizar por WhatsApp</a>
+        <a class="btn btn--ghost btn--lg" href="#productos">Ver catálogo</a>
+      </div>
     </div>
   </section>
 
+  <!-- ===== CATEGORIAS RAPIDAS ===== -->
+  <section class="categorias categorias--page">
+    <div class="container">
+      <div class="cat-grid">
+        <a href="#productos" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/hero-obrero.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span>Ladrillo</span>
+        </a>
+        <a href="#productos" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/rebar-stack.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="20" x2="20" y2="4"/><line x1="9" y1="20" x2="20" y2="9"/><line x1="4" y1="15" x2="15" y2="4"/></svg>
+          <span>Fierro</span>
+        </a>
+        <a href="#productos" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/cemento-obra.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M6 21V10l6-4 6 4v11M10 21v-6h4v6"/></svg>
+          <span>Cemento</span>
+        </a>
+        <a href="#productos" class="cat-card">
+          <span class="cat-card__img" style="background-image:url('images/site/hero-camion.jpg')"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
+          <span>Tuberías</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GRID DE PRODUCTOS (dinámico) ===== -->
   <section class="productos" id="productos">
     <div class="container">
+      <h2 class="section-title">Catálogo completo</h2>
       <div class="cards" id="cards-productos">
-        <p id="productos-loading" style="grid-column:1/-1;color:#9a8f80;">Cargando productos…</p>
+        <p id="productos-loading" style="grid-column:1/-1;color:var(--text-muted);">Cargando productos…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMO COMPRAR ===== -->
+  <section class="como-funciona">
+    <div class="container">
+      <h2 class="section-title">Cómo comprar con Yabar</h2>
+      <div class="pasos">
+        <div class="paso">
+          <span class="paso__num">1</span>
+          <h3>Elige tus productos</h3>
+          <p>Revisa el catálogo o dinos por WhatsApp qué materiales necesitas para tu obra.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__num">2</span>
+          <h3>Confirmamos precio y stock</h3>
+          <p>Te enviamos precio actualizado y disponibilidad real en almacén al toque.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__num">3</span>
+          <h3>Recibes en tu obra</h3>
+          <p>Coordinamos la entrega directo al frente de trabajo, sin que te muevas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>¿No encuentras lo que buscas?</h2>
+      <p>Escríbenos y te ayudamos a conseguirlo, aunque no esté en el catálogo.</p>
+      <div class="hero__actions" style="justify-content:center;">
+        <a class="btn btn--lg" style="background:var(--negro);color:var(--crema);" target="_blank" rel="noopener"
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20busco%20un%20producto%20que%20no%20encuentro%20en%20el%20cat%C3%A1logo">Consultar por WhatsApp</a>
+        <a class="btn btn--ghost btn--lg" href="servicios.html">Ver nuestros servicios</a>
       </div>
     </div>
   </section>
@@ -116,7 +192,7 @@
           <img src="" class="modal-body-img" alt="" style="width:100%;border-radius:10px;margin-bottom:16px;display:none;">
           <span class="badge text-bg-secondary modal-body-cat" style="margin-bottom:10px;"></span>
           <p class="modal-body-desc" style="margin:12px 0;"></p>
-          <p class="modal-body-unit" style="color:#9a8f80;font-size:.85rem;"></p>
+          <p class="modal-body-unit" style="color:var(--text-muted);font-size:.85rem;"></p>
         </div>
         <div class="modal-footer">
           <a href="#" target="_blank" rel="noopener" class="btn btn--primary modal-body-cta" style="width:100%;justify-content:center;">
@@ -132,7 +208,7 @@
 <footer class="footer">
   <div class="container footer__inner">
     <div>
-      <p class="logo logo--footer"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></p>
+      <p class="logo logo--footer"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></p>
       <p class="footer__addr">Av. Bolognesi #123, Nasca, Perú</p>
     </div>
     <div class="footer__contact">

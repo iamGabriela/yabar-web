@@ -515,6 +515,7 @@ input:focus-visible,
 
 /* ===== CATEGORIAS DESTACADAS ===== */
 .categorias{padding:70px 0 20px;}
+.categorias--page{padding:56px 0 10px;}
 .cat-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
 }
