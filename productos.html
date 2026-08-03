@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="color-scheme" content="light dark">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +14,7 @@
 <title>Productos | Yabar Ferretería</title>
 <meta name="description" content="Catálogo de productos de Yabar Ferretería en Nasca: cemento, fierro, ladrillos, tuberías y más. Consulta disponibilidad y cotiza por WhatsApp.">
 </head>
-<body>
+<body class="page-catalogo">
 
 <!-- BARRA DE CONTACTO -->
 <div class="topbar">
@@ -130,7 +131,7 @@
           </div>
         </aside>
 
-        <div class="productos">
+        <div class="catalogo-productos">
           <div class="cards" id="cards-productos">
             <p id="productos-loading" style="grid-column:1/-1;color:var(--text-muted);">Cargando productos…</p>
           </div>
@@ -202,29 +203,6 @@
       </div>
     </div>
   </section>
-
-  <!-- MODAL DETALLE DE PRODUCTO -->
-  <div class="modal fade" id="producto-modal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Producto</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <img src="" class="modal-body-img" alt="" style="width:100%;border-radius:10px;margin-bottom:16px;display:none;">
-          <span class="badge text-bg-secondary modal-body-cat" style="margin-bottom:10px;"></span>
-          <p class="modal-body-desc" style="margin:12px 0;"></p>
-          <p class="modal-body-unit" style="color:var(--text-muted);font-size:.85rem;"></p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" target="_blank" rel="noopener" class="btn btn--primary modal-body-cta" style="width:100%;justify-content:center;">
-            Cotizar por WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </main>
 

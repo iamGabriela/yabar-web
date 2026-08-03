@@ -184,6 +184,7 @@ function renderProductos() {
     const unidadHtml = p.unidad
       ? `<p class="card__unit"><strong>Presentación:</strong> ${p.unidad}</p>`
       : '';
+    const mensaje = encodeURIComponent(`Hola Yabar, quiero cotizar: ${p.nombre}`);
     return `
       <article class="card">
         ${imgHtml}
@@ -192,16 +193,13 @@ function renderProductos() {
           <span class="card__tag">${p.categoria || 'Producto'}</span>
           <h3 class="card__title">${p.nombre}</h3>
           ${unidadHtml}
-          <button type="button" class="card__cta card__cta--btn" data-producto-id="${p.id}">
-            Ver detalle <span aria-hidden="true">→</span>
-          </button>
+          <a class="card__cta--btn" target="_blank" rel="noopener"
+             href="https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}">
+            Cotizar por WhatsApp <span aria-hidden="true">→</span>
+          </a>
         </div>
       </article>`;
   }).join('');
-
-  document.querySelectorAll('[data-producto-id]').forEach(btn => {
-    btn.addEventListener('click', () => abrirModalProducto(btn.dataset.productoId));
-  });
 }
 
 const catalogoSearch = document.getElementById('catalogo-search');
@@ -210,35 +208,6 @@ if (catalogoSearch) {
     FILTRO_TEXTO = e.target.value.trim();
     renderProductos();
   });
-}
-
-function abrirModalProducto(id) {
-  const p = PRODUCTOS_CACHE.find(x => String(x.id) === String(id));
-  if (!p) return;
-
-  const modalEl = document.getElementById('producto-modal');
-  if (!modalEl || typeof bootstrap === 'undefined') return;
-
-  modalEl.querySelector('.modal-title').textContent = p.nombre;
-  modalEl.querySelector('.modal-body-cat').textContent = p.categoria || 'Producto';
-  modalEl.querySelector('.modal-body-desc').textContent = p.descripcion || 'Consulta disponibilidad y detalles con nuestro equipo.';
-  modalEl.querySelector('.modal-body-unit').textContent = p.unidad ? `Presentación: ${p.unidad}` : '';
-
-  const img = modalEl.querySelector('.modal-body-img');
-  if (p.imagenUrl) {
-    img.src = p.imagenUrl;
-    img.style.display = 'block';
-  } else {
-    img.style.display = 'none';
-  }
-
-  const mensaje = encodeURIComponent(`Hola, quiero cotizar ${p.nombre}`);
-  modalEl.querySelector('.modal-body-cta').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}`;
-
-  try {
-    const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
-    bsModal.show();
-  } catch (e) { /* silencioso: si Bootstrap falló, no rompe el resto de la página */ }
 }
 
 cargarProductosPublicos();

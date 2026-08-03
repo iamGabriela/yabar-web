@@ -216,7 +216,7 @@ a{text-decoration:none;color:inherit;}
 .filtro-btn__count{font-size:.78rem;opacity:.7;}
 
 /* ===== PRODUCTOS ===== */
-.productos{padding:0;}
+.productos{padding:100px 0;}
 .section-title{
   font-family:var(--font-display);
   font-size:clamp(1.7rem, 3vw, 2.4rem);
@@ -227,8 +227,8 @@ a{text-decoration:none;color:inherit;}
   display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
 }
 .card{
-  background:var(--blanco);
-  border:1px solid var(--piedra);
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
   border-radius:16px;
   overflow:hidden;
   display:flex;flex-direction:column;
@@ -257,7 +257,12 @@ a{text-decoration:none;color:inherit;}
 .card__unit{font-size:.85rem;color:var(--text-muted);margin-bottom:16px;}
 
 /* ===== CARD: badge + botón detalle ===== */
-.card__badge{position:absolute;top:12px;right:12px;z-index:2;}
+.card__badge{
+  position:absolute;top:12px;right:12px;z-index:2;
+  background:var(--naranja);color:var(--negro);
+  font-size:.68rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;
+}
 .card__cta--btn{
   border:1px solid var(--piedra);background:var(--crema);
   font-family:inherit;font-weight:700;font-size:.9rem;
@@ -447,6 +452,8 @@ input:focus-visible,
 .searchbar button svg{width:16px;height:16px;}
 .searchbar button:hover{background:var(--naranja-2);}
 
+.page-catalogo .header .searchbar{display:none;}
+
 .header .nav a{color:rgba(255,255,255,.8);}
 .header .nav a:hover{color:var(--naranja);}
 .header .nav a.is-active{color:var(--naranja);}
@@ -616,7 +623,7 @@ input:focus-visible,
 
 /* ===== STRIP ICONS ===== */
 .strip__icon{
-  width:32px;height:32px;color:var(--marron);display:block;margin-bottom:10px;
+  width:32px;height:32px;color:var(--naranja-2);display:block;margin-bottom:10px;
 }
 
 /* ===== CATEGORIAS DESTACADAS ===== */
