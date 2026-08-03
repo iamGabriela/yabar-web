@@ -8,8 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="images/brand/favicon.ico">
+<link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
 <title>Servicios | Yabar Ferretería</title>
-<meta name="description" content="Servicios de Yabar Ferretería: entrega en obra, alquiler de maquinaria, stock completo y asesoría técnica.">
+<meta name="description" content="Servicios de Yabar Ferretería en Nasca: entrega directa en obra, alquiler de maquinaria, stock completo y asesoría técnica para tu proyecto.">
 </head>
 <body>
 
@@ -30,7 +32,7 @@
     </button>
 
     <a href="index.html" class="logo">
-      <span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span>
+      <img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img">
     </a>
 
     <form class="searchbar" id="searchbar" onsubmit="return false;">
@@ -65,17 +67,17 @@
 <div class="offcanvas-backdrop" id="offcanvas-backdrop"></div>
 <aside class="offcanvas" id="offcanvas">
   <div class="offcanvas__head">
-    <span class="logo"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></span>
+    <span class="logo"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></span>
     <button id="btn-close-menu" aria-label="Cerrar menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
   <nav class="offcanvas__nav">
     <a href="index.html">Inicio</a>
-      <a href="servicios.html" class="is-active">Servicios</a>
-      <a href="productos.html">Productos</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contacto</a>
+    <a href="servicios.html" class="is-active">Servicios</a>
+    <a href="productos.html">Productos</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
   </nav>
   <div class="offcanvas__foot">
     <a class="btn btn--primary" target="_blank" rel="noopener"
@@ -88,14 +90,22 @@
 
 <main id="top">
 
-  <section class="page-hero">
+  <!-- ===== HERO CON IMAGEN ===== -->
+  <section class="page-hero page-hero--img" style="background-image:url('images/site/hero-camion.jpg')">
+    <div class="page-hero__overlay"></div>
     <div class="container">
       <p class="eyebrow">LO QUE HACEMOS</p>
-      <h1 class="page-hero__title">Nuestros servicios</h1>
-      <p class="page-hero__sub">Más que una ferretería: te acompañamos en cada etapa de tu obra.</p>
+      <h1 class="page-hero__title">Más que materiales, <span class="accent">un socio para tu obra.</span></h1>
+      <p class="page-hero__sub">Desde la cotización hasta la entrega en el frente de trabajo, te acompañamos en cada etapa de tu proyecto.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" target="_blank" rel="noopener"
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n%20sobre%20servicios">Cotizar por WhatsApp</a>
+        <a class="btn btn--ghost btn--lg" href="#servicios">Ver servicios</a>
+      </div>
     </div>
   </section>
 
+  <!-- ===== FRANJA RESUMEN ===== -->
   <section class="strip strip--page">
     <div class="container strip__grid">
       <div class="strip__item">
@@ -121,13 +131,155 @@
     </div>
   </section>
 
+  <!-- ===== SERVICIOS DETALLE ===== -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <h2 class="section-title">Cada servicio, pensado para tu obra</h2>
+      <div class="servicios-grid">
+
+        <div class="servicio-card">
+          <div class="servicio-card__img">
+            <span class="servicio-card__num">1</span>
+            <img src="images/site/hero-camion.jpg" alt="Entrega de materiales en obra">
+          </div>
+          <div class="servicio-card__body">
+            <span class="servicio-card__tag">Logística</span>
+            <h3>Entrega directa en obra</h3>
+            <p>Coordinamos el transporte de tus materiales hasta el frente de trabajo, para que tu equipo no pierda tiempo yendo a buscarlos.</p>
+            <ul class="servicio-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Cobertura en Nasca, Acarí, Chala y Lomas</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Coordinación de fecha y hora de entrega</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Ideal para pedidos grandes o recurrentes</li>
+            </ul>
+            <a class="servicio-card__cta" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar%20una%20entrega%20en%20obra">Cotizar entrega <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-card__img">
+            <span class="servicio-card__num">2</span>
+            <img src="images/site/hero-obrero.jpg" alt="Alquiler de maquinaria para construcción">
+          </div>
+          <div class="servicio-card__body">
+            <span class="servicio-card__tag">Maquinaria</span>
+            <h3>Alquiler de maquinaria</h3>
+            <p>Ponemos a tu disposición equipos para las etapas más pesadas de tu obra, con la asesoría de uso incluida.</p>
+            <ul class="servicio-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Retroexcavadoras, mezcladoras y vibradoras</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Alquiler por día o por proyecto completo</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Equipos revisados antes de cada entrega</li>
+            </ul>
+            <a class="servicio-card__cta" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20alquilar%20maquinaria">Consultar disponibilidad <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-card__img">
+            <span class="servicio-card__num">3</span>
+            <img src="images/site/cemento-obra.jpg" alt="Stock completo de materiales de construcción">
+          </div>
+          <div class="servicio-card__body">
+            <span class="servicio-card__tag">Almacén</span>
+            <h3>Stock completo, siempre disponible</h3>
+            <p>Cemento, fierro, ladrillo, tuberías y acabados en un solo lugar. Lo que ves en el catálogo, lo tenemos en almacén.</p>
+            <ul class="servicio-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Marcas reconocidas: Pacasmayo, Pavco, Aceros Arequipa</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Compra por unidad, millar o mayor</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Reposición constante de inventario</li>
+            </ul>
+            <a class="servicio-card__cta" href="productos.html">Ver catálogo completo <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-card__img">
+            <span class="servicio-card__num">4</span>
+            <img src="images/site/equipo-tienda.jpg" alt="Asesoría técnica en ferretería Yabar">
+          </div>
+          <div class="servicio-card__body">
+            <span class="servicio-card__tag">Asesoría</span>
+            <h3>Asesoría técnica personalizada</h3>
+            <p>Nuestro equipo te ayuda a calcular cantidades y elegir el material correcto según el avance real de tu obra.</p>
+            <ul class="servicio-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Cálculo de metrados y cantidades</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Recomendación de materiales por etapa</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Atención en tienda o por WhatsApp</li>
+            </ul>
+            <a class="servicio-card__cta" target="_blank" rel="noopener"
+               href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20asesor%C3%ADa%20t%C3%A9cnica">Hablar con un asesor <span>→</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMO FUNCIONA ===== -->
+  <section class="como-funciona">
+    <div class="container">
+      <h2 class="section-title">Cómo trabajamos contigo</h2>
+      <div class="pasos">
+        <div class="paso">
+          <span class="paso__num">1</span>
+          <h3>Cotiza por WhatsApp</h3>
+          <p>Cuéntanos qué necesitas y para cuándo. Te respondemos con precio y disponibilidad al toque.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__num">2</span>
+          <h3>Confirmamos stock y equipo</h3>
+          <p>Te asesoramos con cantidades y, si necesitas maquinaria, coordinamos disponibilidad y fechas.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__num">3</span>
+          <h3>Entregamos en tu obra</h3>
+          <p>Llevamos el material y/o equipo directo al frente de trabajo, sin que tengas que movilizarte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COBERTURA ===== -->
+  <section class="cobertura">
+    <div class="container">
+      <h2 class="section-title">Dónde entregamos</h2>
+      <p class="cobertura__sub">Cruzamos las fronteras de Nasca para llevarte todo lo que necesitas para la construcción.</p>
+      <div class="cobertura__grid">
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Nasca</h3>
+          <p>Nuestra base de operaciones.</p>
+        </div>
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Acarí</h3>
+          <p>Entrega directa en obra.</p>
+        </div>
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Chala</h3>
+          <p>De Nasca a la costa.</p>
+        </div>
+        <div class="cobertura__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Lomas</h3>
+          <p>Cada obra es única, cada cliente también.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
   <section class="cta-final">
-    <div class="container cta-final__inner">
+    <div class="container">
       <h2>¿Necesitas ayuda con tu proyecto?</h2>
-      <a class="btn btn--primary" target="_blank" rel="noopener"
-         href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n%20sobre%20servicios">
-        Hablar con Yabar
-      </a>
+      <p>Cotiza ahora y recibe asesoría, materiales o maquinaria directo en obra.</p>
+      <div class="hero__actions" style="justify-content:center;">
+        <a class="btn btn--lg" style="background:var(--negro);color:var(--crema);" target="_blank" rel="noopener"
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n%20sobre%20servicios">Hablar con Yabar</a>
+        <a class="btn btn--ghost btn--lg" href="productos.html">Ver catálogo completo</a>
+      </div>
     </div>
   </section>
 
@@ -136,7 +288,7 @@
 <footer class="footer">
   <div class="container footer__inner">
     <div>
-      <p class="logo logo--footer"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></p>
+      <p class="logo logo--footer"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></p>
       <p class="footer__addr">Av. Bolognesi #123, Nasca, Perú</p>
     </div>
     <div class="footer__contact">
