@@ -413,6 +413,25 @@ input:focus-visible,
 .page-hero--img .container{position:relative;z-index:1;}
 .page-hero--img .hero__actions{margin-top:28px;}
 
+/* ===== MARCAS ALIADAS ===== */
+.marcas{padding:70px 0;background:var(--piedra);}
+.marcas .section-title{margin-bottom:36px;}
+.marcas-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.marca-card{
+  background:#fff;border:1px solid var(--border-soft);border-radius:14px;
+  height:120px;display:flex;align-items:center;justify-content:center;padding:20px;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.marca-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(22,16,12,.12);}
+.marca-card img{
+  max-width:100%;max-height:100%;object-fit:contain;
+  filter:grayscale(1);opacity:.65;
+  transition:filter .2s ease, opacity .2s ease;
+}
+.marca-card:hover img{filter:grayscale(0);opacity:1;}
+
 /* ===== SERVICIOS: grid de tarjetas detalladas ===== */
 .servicios{padding:100px 0;}
 .servicios-grid{
@@ -622,6 +641,7 @@ input:focus-visible,
   .pasos{grid-template-columns:1fr;gap:36px;}
   .cobertura__grid{grid-template-columns:repeat(2,1fr);}
   .servicios-grid{grid-template-columns:1fr;}
+  .marcas-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media (max-width:560px){
   .strip__grid{grid-template-columns:1fr;}
