@@ -1,25 +1,93 @@
-// Sombra en el header al hacer scroll
+// =========================================================
+// MENÚ HAMBURGUESA (off-canvas) — se activa PRIMERO y SIEMPRE,
+// sin depender de que Bootstrap u otras cosas carguen bien.
+// =========================================================
+const btnHamburger = document.getElementById('btn-hamburger');
+const btnCloseMenu = document.getElementById('btn-close-menu');
+const offcanvas = document.getElementById('offcanvas');
+const offcanvasBackdrop = document.getElementById('offcanvas-backdrop');
+
+function abrirMenu() {
+  if (!offcanvas || !offcanvasBackdrop) return;
+  offcanvas.classList.add('is-open');
+  offcanvasBackdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function cerrarMenu() {
+  if (!offcanvas || !offcanvasBackdrop) return;
+  offcanvas.classList.remove('is-open');
+  offcanvasBackdrop.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+if (btnHamburger) btnHamburger.addEventListener('click', abrirMenu);
+if (btnCloseMenu) btnCloseMenu.addEventListener('click', cerrarMenu);
+if (offcanvasBackdrop) offcanvasBackdrop.addEventListener('click', cerrarMenu);
+document.querySelectorAll('.offcanvas__nav a').forEach(a => a.addEventListener('click', cerrarMenu));
+
+// =========================================================
+// SOMBRA EN EL HEADER AL HACER SCROLL
+// =========================================================
 const header = document.querySelector('.header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 10 ? '0 4px 14px rgba(0,0,0,.18)' : 'none';
+  });
+}
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    header.style.boxShadow = '0 4px 14px rgba(22,16,12,.08)';
-  } else {
-    header.style.boxShadow = 'none';
+// =========================================================
+// MODO OSCURO / CLARO
+// =========================================================
+const THEME_KEY = 'yabar_theme';
+const btnTheme = document.getElementById('btn-theme');
+
+function aplicarTema(tema) {
+  document.documentElement.setAttribute('data-theme', tema);
+  localStorage.setItem(THEME_KEY, tema);
+  if (btnTheme) {
+    btnTheme.innerHTML = tema === 'dark'
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   }
-});
+}
 
-// ===== Carga de productos desde la API =====
-const API_URL = "https://yabar-web.onrender.com/api";
+const temaGuardado = localStorage.getItem(THEME_KEY) || 'light';
+aplicarTema(temaGuardado);
+
+if (btnTheme) {
+  btnTheme.addEventListener('click', () => {
+    const actual = document.documentElement.getAttribute('data-theme') || 'light';
+    aplicarTema(actual === 'light' ? 'dark' : 'light');
+  });
+}
+
+// =========================================================
+// BUSCADOR DEL HEADER
+// =========================================================
 const WHATSAPP_NUMERO = "51958345849";
+const searchForm = document.getElementById('searchbar');
+if (searchForm) {
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const query = document.getElementById('search-input').value.trim();
+    if (query) {
+      const mensaje = encodeURIComponent(`Hola Yabar, busco: ${query}`);
+      window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}`, '_blank');
+    }
+  });
+}
+
+// =========================================================
+// PRODUCTOS: carga desde la API
+// =========================================================
+const API_URL = "https://yabar-web.onrender.com/api";
 let PRODUCTOS_CACHE = [];
 
 async function cargarProductosPublicos() {
   const contenedor = document.getElementById('cards-productos');
   if (!contenedor) return;
 
-  // Skeleton mientras carga
-  contenedor.innerHTML = Array.from({length: 8}).map(() => `
+  contenedor.innerHTML = Array.from({ length: 8 }).map(() => `
     <div class="card-skeleton">
       <div class="card-skeleton__img"></div>
       <div class="card-skeleton__body">
@@ -36,25 +104,27 @@ async function cargarProductosPublicos() {
     PRODUCTOS_CACHE = productos;
 
     if (productos.length === 0) {
-      contenedor.innerHTML = '<p style="grid-column:1/-1;color:#7d7263;text-align:center;padding:40px 0;">Estamos cargando el catálogo. Mientras tanto, escríbenos por WhatsApp y te ayudamos directo.</p>';
+      contenedor.innerHTML = '<p class="cards-empty">Estamos cargando el catálogo. Mientras tanto, escríbenos por WhatsApp y te ayudamos directo.</p>';
       return;
     }
 
     contenedor.innerHTML = productos.map((p, i) => {
-      const unidad = p.unidad ? `<p class="card__unit">${p.unidad}</p>` : '';
       const esNuevo = i < 3;
-      const badge = esNuevo ? '<span class="badge text-bg-warning card__badge">Nuevo</span>' : '';
+      const badge = esNuevo ? '<span class="card__badge">Nuevo</span>' : '';
       const imgHtml = p.imagenUrl
         ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
         : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
+      const unidadHtml = p.unidad
+        ? `<p class="card__unit"><strong>Presentación:</strong> ${p.unidad}</p>`
+        : '';
       return `
         <article class="card">
           ${imgHtml}
           <div class="card__body">
             ${badge}
-            <div class="card__tag">${p.categoria || 'Producto'}</div>
-            <h3>${p.nombre}</h3>
-            ${unidad}
+            <span class="card__tag">${p.categoria || 'Producto'}</span>
+            <h3 class="card__title">${p.nombre}</h3>
+            ${unidadHtml}
             <button type="button" class="card__cta card__cta--btn" data-producto-id="${p.id}">
               Ver detalle <span aria-hidden="true">→</span>
             </button>
@@ -67,17 +137,16 @@ async function cargarProductosPublicos() {
     });
 
   } catch (e) {
-    contenedor.innerHTML = '<p style="grid-column:1/-1;color:#7d7263;text-align:center;padding:40px 0;">No pudimos cargar el catálogo ahora mismo. Escríbenos por WhatsApp y te ayudamos directo con lo que buscas.</p>';
+    contenedor.innerHTML = '<p class="cards-empty">No pudimos cargar el catálogo ahora mismo. Escríbenos por WhatsApp y te ayudamos directo con lo que buscas.</p>';
   }
 }
 
-// ===== Modal de detalle de producto (Bootstrap) =====
 function abrirModalProducto(id) {
   const p = PRODUCTOS_CACHE.find(x => String(x.id) === String(id));
   if (!p) return;
 
   const modalEl = document.getElementById('producto-modal');
-  if (!modalEl) return;
+  if (!modalEl || typeof bootstrap === 'undefined') return;
 
   modalEl.querySelector('.modal-title').textContent = p.nombre;
   modalEl.querySelector('.modal-body-cat').textContent = p.categoria || 'Producto';
@@ -95,62 +164,36 @@ function abrirModalProducto(id) {
   const mensaje = encodeURIComponent(`Hola, quiero cotizar ${p.nombre}`);
   modalEl.querySelector('.modal-body-cta').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}`;
 
-  const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
-  bsModal.show();
+  try {
+    const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
+    bsModal.show();
+  } catch (e) { /* silencioso: si Bootstrap falló, no rompe el resto de la página */ }
 }
 
 cargarProductosPublicos();
 
-// ===== Tooltips de Bootstrap =====
-document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
-  new bootstrap.Tooltip(el);
-});
+// =========================================================
+// EXTRAS DE BOOTSTRAP (tooltips, toasts) — protegidos con try/catch
+// para que un fallo aquí NUNCA afecte el resto del sitio.
+// =========================================================
+try {
+  if (typeof bootstrap !== 'undefined') {
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+      new bootstrap.Tooltip(el);
+    });
+  }
+} catch (e) { /* silencioso */ }
 
-// ===== Toast: copiar teléfono =====
 document.querySelectorAll('[data-copy]').forEach(btn => {
   btn.addEventListener('click', () => {
     const texto = btn.dataset.copy;
     navigator.clipboard.writeText(texto).then(() => {
-      const toastEl = document.getElementById('copy-toast');
-      if (toastEl) {
-        const toast = bootstrap.Toast.getOrCreateInstance(toastEl);
-        toast.show();
-      }
+      try {
+        const toastEl = document.getElementById('copy-toast');
+        if (toastEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Toast.getOrCreateInstance(toastEl).show();
+        }
+      } catch (e) { /* silencioso */ }
     });
   });
 });
-
-// ===== Buscador del header =====
-const searchForm = document.getElementById('searchbar');
-if (searchForm) {
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const query = document.getElementById('search-input').value.trim();
-    if (query) {
-      const mensaje = encodeURIComponent(`Hola Yabar, busco: ${query}`);
-      window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}`, '_blank');
-    }
-  });
-}
-
-// ===== Menú off-canvas (hamburguesa) =====
-const btnHamburger = document.getElementById('btn-hamburger');
-const btnCloseMenu = document.getElementById('btn-close-menu');
-const offcanvas = document.getElementById('offcanvas');
-const offcanvasBackdrop = document.getElementById('offcanvas-backdrop');
-
-function abrirMenu() {
-  offcanvas.classList.add('is-open');
-  offcanvasBackdrop.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-function cerrarMenu() {
-  offcanvas.classList.remove('is-open');
-  offcanvasBackdrop.classList.remove('is-open');
-  document.body.style.overflow = '';
-}
-
-if (btnHamburger) btnHamburger.addEventListener('click', abrirMenu);
-if (btnCloseMenu) btnCloseMenu.addEventListener('click', cerrarMenu);
-if (offcanvasBackdrop) offcanvasBackdrop.addEventListener('click', cerrarMenu);
-document.querySelectorAll('.offcanvas__nav a').forEach(a => a.addEventListener('click', cerrarMenu));
