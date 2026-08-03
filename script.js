@@ -82,6 +82,8 @@ if (searchForm) {
 // =========================================================
 const API_URL = "https://yabar-web.onrender.com/api";
 let PRODUCTOS_CACHE = [];
+let FILTRO_CATEGORIA = 'todos';
+let FILTRO_TEXTO = '';
 
 async function cargarProductosPublicos() {
   const contenedor = document.getElementById('cards-productos');
@@ -108,37 +110,106 @@ async function cargarProductosPublicos() {
       return;
     }
 
-    contenedor.innerHTML = productos.map((p, i) => {
-      const esNuevo = i < 3;
-      const badge = esNuevo ? '<span class="card__badge">Nuevo</span>' : '';
-      const imgHtml = p.imagenUrl
-        ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
-        : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
-      const unidadHtml = p.unidad
-        ? `<p class="card__unit"><strong>Presentación:</strong> ${p.unidad}</p>`
-        : '';
-      return `
-        <article class="card">
-          ${imgHtml}
-          <div class="card__body">
-            ${badge}
-            <span class="card__tag">${p.categoria || 'Producto'}</span>
-            <h3 class="card__title">${p.nombre}</h3>
-            ${unidadHtml}
-            <button type="button" class="card__cta card__cta--btn" data-producto-id="${p.id}">
-              Ver detalle <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </article>`;
-    }).join('');
-
-    document.querySelectorAll('[data-producto-id]').forEach(btn => {
-      btn.addEventListener('click', () => abrirModalProducto(btn.dataset.productoId));
-    });
+    construirFiltrosCategoria(productos);
+    renderProductos();
 
   } catch (e) {
     contenedor.innerHTML = '<p class="cards-empty">No pudimos cargar el catálogo ahora mismo. Escríbenos por WhatsApp y te ayudamos directo con lo que buscas.</p>';
   }
+}
+
+function construirFiltrosCategoria(productos) {
+  const listaEl = document.getElementById('filtros-categorias');
+  const countTodosEl = document.getElementById('count-todos');
+  if (!listaEl) return;
+
+  const categorias = {};
+  productos.forEach(p => {
+    const cat = p.categoria || 'Otros';
+    categorias[cat] = (categorias[cat] || 0) + 1;
+  });
+
+  if (countTodosEl) countTodosEl.textContent = productos.length;
+
+  const botonesCategorias = Object.keys(categorias).sort().map(cat => `
+    <button type="button" class="filtro-btn" data-categoria="${cat}">
+      ${cat} <span class="filtro-btn__count">${categorias[cat]}</span>
+    </button>`).join('');
+
+  listaEl.insertAdjacentHTML('beforeend', botonesCategorias);
+
+  listaEl.querySelectorAll('.filtro-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      listaEl.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      FILTRO_CATEGORIA = btn.dataset.categoria;
+      renderProductos();
+    });
+  });
+}
+
+function renderProductos() {
+  const contenedor = document.getElementById('cards-productos');
+  const countEl = document.getElementById('catalogo-count');
+  if (!contenedor) return;
+
+  let lista = PRODUCTOS_CACHE;
+
+  if (FILTRO_CATEGORIA !== 'todos') {
+    lista = lista.filter(p => (p.categoria || 'Otros') === FILTRO_CATEGORIA);
+  }
+  if (FILTRO_TEXTO) {
+    const q = FILTRO_TEXTO.toLowerCase();
+    lista = lista.filter(p =>
+      (p.nombre || '').toLowerCase().includes(q) ||
+      (p.categoria || '').toLowerCase().includes(q)
+    );
+  }
+
+  if (countEl) {
+    countEl.innerHTML = `<strong>${lista.length}</strong> producto${lista.length === 1 ? '' : 's'} encontrado${lista.length === 1 ? '' : 's'}`;
+  }
+
+  if (lista.length === 0) {
+    contenedor.innerHTML = '<p class="cards-empty">No encontramos productos con ese filtro. Prueba con otra palabra o escríbenos por WhatsApp.</p>';
+    return;
+  }
+
+  contenedor.innerHTML = lista.map((p, i) => {
+    const esNuevo = i < 3 && FILTRO_CATEGORIA === 'todos' && !FILTRO_TEXTO;
+    const badge = esNuevo ? '<span class="card__badge">Nuevo</span>' : '';
+    const imgHtml = p.imagenUrl
+      ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
+      : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
+    const unidadHtml = p.unidad
+      ? `<p class="card__unit"><strong>Presentación:</strong> ${p.unidad}</p>`
+      : '';
+    return `
+      <article class="card">
+        ${imgHtml}
+        <div class="card__body">
+          ${badge}
+          <span class="card__tag">${p.categoria || 'Producto'}</span>
+          <h3 class="card__title">${p.nombre}</h3>
+          ${unidadHtml}
+          <button type="button" class="card__cta card__cta--btn" data-producto-id="${p.id}">
+            Ver detalle <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </article>`;
+  }).join('');
+
+  document.querySelectorAll('[data-producto-id]').forEach(btn => {
+    btn.addEventListener('click', () => abrirModalProducto(btn.dataset.productoId));
+  });
+}
+
+const catalogoSearch = document.getElementById('catalogo-search');
+if (catalogoSearch) {
+  catalogoSearch.addEventListener('input', (e) => {
+    FILTRO_TEXTO = e.target.value.trim();
+    renderProductos();
+  });
 }
 
 function abrirModalProducto(id) {
