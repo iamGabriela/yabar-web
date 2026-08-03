@@ -481,23 +481,43 @@ input:focus-visible,
 .page-hero--img .hero__actions{margin-top:28px;}
 
 /* ===== MARCAS ALIADAS ===== */
-.marcas{padding:70px 0;background:var(--piedra);}
-.marcas .section-title{margin-bottom:36px;}
+.marcas{padding:80px 0;background:var(--brand-dark);}
+.marcas .section-title{color:var(--brand-light);margin-bottom:6px;}
+.marcas__sub{color:rgba(243,238,231,.55);max-width:480px;margin-bottom:40px;font-size:.98rem;}
 .marcas-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
 }
 .marca-card{
-  background:#fff;border:1px solid var(--border-soft);border-radius:14px;
-  height:120px;display:flex;align-items:center;justify-content:center;padding:20px;
-  transition:transform .15s ease, box-shadow .15s ease;
+  position:relative;
+  background:var(--blanco);border-radius:16px;
+  padding:30px 20px 22px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  border:1px solid transparent;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  overflow:hidden;
 }
-.marca-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(22,16,12,.12);}
-.marca-card img{
+.marca-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--naranja);transform:scaleX(0);transform-origin:left;
+  transition:transform .25s ease;
+}
+.marca-card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(0,0,0,.28);border-color:rgba(255,90,31,.25);}
+.marca-card:hover::before{transform:scaleX(1);}
+.marca-card__logo{
+  height:76px;width:100%;display:flex;align-items:center;justify-content:center;
+}
+.marca-card__logo img{
   max-width:100%;max-height:100%;object-fit:contain;
-  filter:grayscale(1);opacity:.65;
+  filter:grayscale(1);opacity:.7;
   transition:filter .2s ease, opacity .2s ease;
 }
-.marca-card:hover img{filter:grayscale(0);opacity:1;}
+.marca-card:hover .marca-card__logo img{filter:grayscale(0);opacity:1;}
+.marca-card__name{
+  font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--text-muted);text-align:center;
+  border-top:1px solid var(--border-soft);padding-top:14px;width:100%;
+}
 
 /* ===== SERVICIOS: grid de tarjetas detalladas ===== */
 .servicios{padding:100px 0;}
