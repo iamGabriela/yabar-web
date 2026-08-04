@@ -601,7 +601,7 @@ input:focus-visible,
 /* ===== CONTACTO / MAPA ===== */
 .contacto{padding:90px 0;background:var(--piedra);}
 .contacto__grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;
+  display:grid;grid-template-columns:.85fr 1fr;gap:40px;align-items:start;
 }
 .contacto__list{list-style:none;margin:24px 0 28px;display:flex;flex-direction:column;gap:14px;}
 .contacto__list li{
@@ -609,9 +609,39 @@ input:focus-visible,
 }
 .contacto__list svg{width:19px;height:19px;color:var(--naranja-2);flex-shrink:0;}
 .contacto__map{
-  min-height:320px;border-radius:14px;overflow:hidden;border:1px solid rgba(22,16,12,.1);
+  min-height:280px;border-radius:14px;overflow:hidden;border:1px solid rgba(22,16,12,.1);
+  margin-top:28px;
 }
-.contacto__map iframe{width:100%;height:100%;min-height:320px;display:block;}
+.contacto__map iframe{width:100%;height:100%;min-height:280px;display:block;}
+
+/* ===== FORMULARIO DE CONTACTO ===== */
+.contacto-form{
+  background:var(--bg-card);border:1px solid var(--border-soft);border-radius:16px;
+  padding:32px;
+}
+.contacto-form h3{font-size:1.2rem;margin-bottom:6px;}
+.contacto-form__sub{color:var(--text-muted);font-size:.9rem;margin-bottom:24px;}
+.contacto-form__row{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+.contacto-form__row label{font-size:.82rem;font-weight:700;color:var(--text-main);}
+.contacto-form__row input,
+.contacto-form__row select,
+.contacto-form__row textarea{
+  width:100%;border-radius:10px;border:1px solid var(--border-soft);
+  background:var(--bg-page);padding:11px 14px;font-family:inherit;font-size:.92rem;color:var(--text-main);
+}
+.contacto-form__row input:focus,
+.contacto-form__row select:focus,
+.contacto-form__row textarea:focus{outline:none;border-color:var(--naranja);}
+.contacto-form__row textarea{resize:vertical;min-height:100px;}
+.contacto-form__submit{
+  width:100%;border:none;background:var(--naranja);color:var(--negro);
+  font-family:inherit;font-weight:700;font-size:.95rem;
+  padding:13px 16px;border-radius:10px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:background .15s ease;
+}
+.contacto-form__submit:hover{background:var(--naranja-2);}
+.contacto-form__note{font-size:.78rem;color:var(--text-muted);margin-top:12px;text-align:center;}
 
 /* ===== HERO: collage de productos reales ===== */
 .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}

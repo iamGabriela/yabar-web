@@ -227,3 +227,21 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
     });
   });
 });
+
+// =========================================================
+// FORMULARIO DE CONTACTO: arma el mensaje y abre WhatsApp
+// =========================================================
+const formContacto = document.getElementById('form-contacto');
+if (formContacto) {
+  formContacto.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('cf-nombre').value.trim();
+    const telefono = document.getElementById('cf-telefono').value.trim();
+    const motivo = document.getElementById('cf-motivo').value;
+    const mensaje = document.getElementById('cf-mensaje').value.trim();
+
+    const texto = `Hola Yabar, soy ${nombre} (tel: ${telefono}).\nMotivo: ${motivo}.\n${mensaje}`;
+    const url = `https://wa.me/51958345849?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank', 'noopener');
+  });
+}
