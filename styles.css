@@ -411,8 +411,6 @@ input:focus-visible,
 .searchbar button svg{width:16px;height:16px;}
 .searchbar button:hover{background:var(--naranja-2);}
 
-.page-catalogo .header .searchbar{display:none;}
-
 .header .nav a{color:rgba(255,255,255,.8);}
 .header .nav a:hover{color:var(--naranja);}
 .header .nav a.is-active{color:var(--naranja);}
