@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="color-scheme" content="light dark">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +31,7 @@
     </button>
 
     <a href="index.html" class="logo">
-      <span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span>
+      <img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img">
     </a>
 
     <form class="searchbar" id="searchbar" onsubmit="return false;">
@@ -65,7 +66,7 @@
 <div class="offcanvas-backdrop" id="offcanvas-backdrop"></div>
 <aside class="offcanvas" id="offcanvas">
   <div class="offcanvas__head">
-    <span class="logo"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></span>
+    <span class="logo"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></span>
     <button id="btn-close-menu" aria-label="Cerrar menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -88,11 +89,65 @@
 
 <main id="top">
 
-  <section class="page-hero">
+  <!-- ===== HERO CON IMAGEN ===== -->
+  <section class="page-hero page-hero--img" style="background-image:url('images/site/equipo-tienda.jpg')">
+    <div class="page-hero__overlay"></div>
     <div class="container">
       <p class="eyebrow">GENTE QUE CONSTRUYE</p>
-      <h1 class="page-hero__title">Sobre Yabar</h1>
-      <p class="page-hero__sub">No solo vendemos materiales, también somos parte de tu proyecto.</p>
+      <h1 class="page-hero__title">No vendemos materiales, <span class="accent">construimos contigo.</span></h1>
+      <p class="page-hero__sub">Somos una ferretería de Nasca, con gente de Nasca, que entiende lo que tu obra necesita.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" target="_blank" rel="noopener"
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n">Escríbenos por WhatsApp</a>
+        <a class="btn btn--ghost btn--lg" href="#historia">Conócenos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HISTORIA ===== -->
+  <section class="servicios" id="historia" style="padding-bottom:60px;">
+    <div class="container">
+      <div class="servicios-grid" style="grid-template-columns:1.1fr .9fr;align-items:center;">
+        <div>
+          <p class="servicio-card__tag">NUESTRA HISTORIA</p>
+          <h2 class="section-title" style="margin-bottom:18px;">Empezamos en Nasca, y seguimos aquí</h2>
+          <p style="color:var(--text-muted);font-size:1rem;margin-bottom:16px;">Yabar nació de la necesidad de tener una ferretería que realmente entendiera los tiempos y las exigencias de una obra en construcción, no solo un mostrador con productos.</p>
+          <p style="color:var(--text-muted);font-size:1rem;">Hoy seguimos siendo un negocio local: conocemos a nuestros clientes, sabemos qué se necesita en cada etapa de una obra, y nos aseguramos de que el material llegue a tiempo, sin vueltas.</p>
+        </div>
+        <div class="servicio-card__img" style="height:340px;border-radius:18px;">
+          <img src="images/site/hero-obrero.jpg" alt="Equipo Yabar en obra">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALORES ===== -->
+  <section class="servicios" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title">Lo que nos guía</h2>
+      <div class="servicios-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="servicio-card" style="align-items:flex-start;">
+          <div class="servicio-card__body" style="padding:28px;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--naranja-2)" stroke-width="1.8" style="margin-bottom:14px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <h3>Cercanía</h3>
+            <p>Somos parte de la comunidad que construimos. Te conocemos, y sabemos lo que tu obra necesita.</p>
+          </div>
+        </div>
+        <div class="servicio-card" style="align-items:flex-start;">
+          <div class="servicio-card__body" style="padding:28px;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--naranja-2)" stroke-width="1.8" style="margin-bottom:14px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <h3>Cumplimiento</h3>
+            <p>Si decimos que llega, llega. La puntualidad en obra no es negociable para nosotros.</p>
+          </div>
+        </div>
+        <div class="servicio-card" style="align-items:flex-start;">
+          <div class="servicio-card__body" style="padding:28px;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--naranja-2)" stroke-width="1.8" style="margin-bottom:14px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <h3>Asesoría honesta</h3>
+            <p>Te recomendamos lo que tu obra realmente necesita, no lo que más nos conviene vender.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -146,12 +201,25 @@
     </div>
   </section>
 
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>¿Conversamos sobre tu proyecto?</h2>
+      <p>Cuéntanos qué necesitas y te asesoramos sin compromiso.</p>
+      <div class="hero__actions" style="justify-content:center;">
+        <a class="btn btn--lg" style="background:var(--negro);color:var(--crema);" target="_blank" rel="noopener"
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20informaci%C3%B3n">Hablar con Yabar</a>
+        <a class="btn btn--ghost btn--lg" href="contacto.html">Ver datos de contacto</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
   <div class="container footer__inner">
     <div>
-      <p class="logo logo--footer"><span class="logo__mark">Y</span>YABAR<span class="logo__dot">.</span></p>
+      <p class="logo logo--footer"><img src="images/brand/logo-blanco.png" alt="YABAR" class="logo__img"></p>
       <p class="footer__addr">Av. Bolognesi #123, Nasca, Perú</p>
     </div>
     <div class="footer__contact">
