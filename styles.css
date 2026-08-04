@@ -336,6 +336,16 @@ input:focus-visible,
 .footer__addr{font-size:.85rem;margin-top:8px;color:var(--text-muted);}
 .footer__contact{display:flex;flex-direction:column;gap:6px;text-align:right;font-size:.9rem;}
 .footer__contact a:hover{color:var(--naranja);}
+.footer__contact-label{
+  font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--naranja-2);margin:8px 0 0;
+}
+.footer__contact-label:first-child{margin-top:0;}
+.footer__social{
+  display:flex;align-items:center;gap:6px;margin-top:10px;
+  color:rgba(243,238,231,.75);
+}
+.footer__social:hover{color:var(--naranja);}
 
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float{
@@ -366,8 +376,11 @@ input:focus-visible,
   display:flex;align-items:center;justify-content:space-between;
   padding:8px 24px;
 }
-.topbar__inner--center{justify-content:center;}
+.topbar__inner--center{justify-content:center;gap:18px;}
 .topbar__info{display:flex;gap:20px;flex-wrap:wrap;}
+.topbar__social{color:rgba(243,238,231,.55);display:flex;align-items:center;transition:color .15s ease;}
+.topbar__social:hover{color:var(--naranja);}
+.topbar__social svg{width:15px;height:15px;}
 .topbar__info span{display:flex;align-items:center;gap:6px;}
 .topbar__admin{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.45);}
 .topbar__admin:hover{color:var(--naranja);}
@@ -435,7 +448,7 @@ input:focus-visible,
 /* ===== PAGE HERO con imagen (servicios) ===== */
 .page-hero--img{
   position:relative;background-size:cover;background-position:center;
-  padding:130px 0 70px;overflow:hidden;
+  padding:150px 0 90px;overflow:hidden;
 }
 .page-hero__overlay{
   position:absolute;inset:0;
@@ -685,7 +698,7 @@ input:focus-visible,
 .cobertura{background:var(--brand-dark);color:var(--brand-light);padding:90px 0;}
 .cobertura .section-title{color:var(--brand-light);}
 .cobertura__sub{color:rgba(243,238,231,.62);max-width:520px;margin:-28px 0 40px;}
-.cobertura__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.cobertura__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
 .cobertura__item{
   border:1px solid rgba(243,238,231,.14);border-radius:14px;padding:26px 20px;
   transition:border-color .15s ease, transform .15s ease;
