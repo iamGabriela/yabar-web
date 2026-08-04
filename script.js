@@ -4,8 +4,8 @@
 // =========================================================
 const btnHamburger = document.getElementById('btn-hamburger');
 const btnCloseMenu = document.getElementById('btn-close-menu');
-const offcanvas = document.getElementById('offcanvas');
-const offcanvasBackdrop = document.getElementById('offcanvas-backdrop');
+const offcanvas = document.getElementById('site-menu');
+const offcanvasBackdrop = document.getElementById('site-menu-backdrop');
 
 function abrirMenu() {
   if (!offcanvas || !offcanvasBackdrop) return;
@@ -23,7 +23,7 @@ function cerrarMenu() {
 if (btnHamburger) btnHamburger.addEventListener('click', abrirMenu);
 if (btnCloseMenu) btnCloseMenu.addEventListener('click', cerrarMenu);
 if (offcanvasBackdrop) offcanvasBackdrop.addEventListener('click', cerrarMenu);
-document.querySelectorAll('.offcanvas__nav a').forEach(a => a.addEventListener('click', cerrarMenu));
+document.querySelectorAll('.site-menu__nav a').forEach(a => a.addEventListener('click', cerrarMenu));
 
 // =========================================================
 // SOMBRA EN EL HEADER AL HACER SCROLL
