@@ -120,7 +120,6 @@ async function cargarProductosPublicos() {
 
 function construirFiltrosCategoria(productos) {
   const listaEl = document.getElementById('filtros-categorias');
-  const countTodosEl = document.getElementById('count-todos');
   if (!listaEl) return;
 
   const categorias = {};
@@ -129,18 +128,14 @@ function construirFiltrosCategoria(productos) {
     categorias[cat] = (categorias[cat] || 0) + 1;
   });
 
-  if (countTodosEl) countTodosEl.textContent = productos.length;
+  const chipsCategorias = Object.keys(categorias).sort().map(cat => `
+    <button type="button" class="chip" data-categoria="${cat}">${cat}</button>`).join('');
 
-  const botonesCategorias = Object.keys(categorias).sort().map(cat => `
-    <button type="button" class="filtro-btn" data-categoria="${cat}">
-      ${cat} <span class="filtro-btn__count">${categorias[cat]}</span>
-    </button>`).join('');
+  listaEl.insertAdjacentHTML('beforeend', chipsCategorias);
 
-  listaEl.insertAdjacentHTML('beforeend', botonesCategorias);
-
-  listaEl.querySelectorAll('.filtro-btn').forEach(btn => {
+  listaEl.querySelectorAll('.chip').forEach(btn => {
     btn.addEventListener('click', () => {
-      listaEl.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('is-active'));
+      listaEl.querySelectorAll('.chip').forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       FILTRO_CATEGORIA = btn.dataset.categoria;
       renderProductos();
@@ -150,7 +145,6 @@ function construirFiltrosCategoria(productos) {
 
 function renderProductos() {
   const contenedor = document.getElementById('cards-productos');
-  const countEl = document.getElementById('catalogo-count');
   if (!contenedor) return;
 
   let lista = PRODUCTOS_CACHE;
@@ -164,10 +158,6 @@ function renderProductos() {
       (p.nombre || '').toLowerCase().includes(q) ||
       (p.categoria || '').toLowerCase().includes(q)
     );
-  }
-
-  if (countEl) {
-    countEl.innerHTML = `<strong>${lista.length}</strong> producto${lista.length === 1 ? '' : 's'} encontrado${lista.length === 1 ? '' : 's'}`;
   }
 
   if (lista.length === 0) {
