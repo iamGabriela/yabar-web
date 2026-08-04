@@ -367,6 +367,9 @@ input:focus-visible,
 .footer__branch a{display:flex;align-items:center;gap:8px;font-size:.9rem;color:rgba(243,238,231,.85);margin-bottom:4px;}
 .footer__branch a:hover{color:var(--naranja);}
 .footer__branch a svg{color:var(--naranja);flex-shrink:0;}
+.footer__wa{color:#25d366 !important;font-weight:600;}
+.footer__wa svg{color:#25d366 !important;}
+.footer__wa:hover{color:#1ebd59 !important;}
 .footer__bottom{
   border-top:1px solid rgba(243,238,231,.1);
   padding:20px 0;
