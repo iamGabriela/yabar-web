@@ -237,11 +237,13 @@ if (formContacto) {
     e.preventDefault();
     const nombre = document.getElementById('cf-nombre').value.trim();
     const telefono = document.getElementById('cf-telefono').value.trim();
+    const sede = document.getElementById('cf-sede').value;
+    const sedeNombre = document.getElementById('cf-sede').selectedOptions[0].text;
     const motivo = document.getElementById('cf-motivo').value;
     const mensaje = document.getElementById('cf-mensaje').value.trim();
 
-    const texto = `Hola Yabar, soy ${nombre} (tel: ${telefono}).\nMotivo: ${motivo}.\n${mensaje}`;
-    const url = `https://wa.me/51958345849?text=${encodeURIComponent(texto)}`;
+    const texto = `Hola Yabar (sede ${sedeNombre}), soy ${nombre} (tel: ${telefono}).\nMotivo: ${motivo}.\n${mensaje}`;
+    const url = `https://wa.me/${sede}?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank', 'noopener');
   });
 }
