@@ -152,8 +152,8 @@ a{text-decoration:none;color:inherit;}
   font-family:var(--font-display);font-size:1.5rem;color:var(--naranja);line-height:1;
 }
 .hero__trust-item span{font-size:.8rem;color:rgba(243,238,231,.55);}
-.hero .btn--ghost{border-color:var(--crema);color:var(--crema);}
-.hero .btn--ghost:hover{background:var(--crema);color:var(--negro);}
+.hero .btn--ghost{border-color:var(--brand-light);color:var(--brand-light);}
+.hero .btn--ghost:hover{background:var(--brand-light);color:var(--brand-dark);}
 
 /* ===== STRIP (servicios) ===== */
 .strip{background:var(--naranja);padding:48px 0;}
@@ -319,7 +319,7 @@ input:focus-visible,
 .card__cta:hover{color:var(--naranja-2);}
 
 /* ===== CONFIANZA ===== */
-.confianza{background:var(--marron);color:var(--crema);padding:90px 0;}
+.confianza{background:var(--marron);color:var(--brand-light);padding:90px 0;}
 .confianza__inner blockquote{
   font-family:var(--font-display);
   font-size:clamp(1.3rem, 2.6vw, 2rem);
@@ -354,7 +354,7 @@ input:focus-visible,
   padding:56px 0 40px;
 }
 .footer__brand{display:flex;flex-direction:column;align-items:flex-start;}
-.logo--footer{color:var(--crema);}
+.logo--footer{color:var(--brand-light);}
 .footer__tagline{font-size:.9rem;line-height:1.6;margin-top:14px;color:rgba(243,238,231,.6);max-width:26ch;}
 .footer__social{
   display:flex;align-items:center;justify-content:center;
@@ -369,7 +369,7 @@ input:focus-visible,
 }
 .footer__nav{display:flex;flex-direction:column;gap:12px;font-size:.9rem;}
 .footer__nav a{color:rgba(243,238,231,.7);position:relative;width:fit-content;}
-.footer__nav a:hover{color:var(--crema);}
+.footer__nav a:hover{color:var(--brand-light);}
 .footer__addr{display:flex;gap:10px;font-size:.88rem;line-height:1.5;color:rgba(243,238,231,.7);margin-bottom:18px;}
 .footer__addr svg{flex-shrink:0;margin-top:2px;color:var(--naranja);}
 .footer__branch{margin-bottom:16px;}
@@ -442,12 +442,12 @@ input:focus-visible,
   display:flex;align-items:center;gap:20px;
   padding:14px 24px;
 }
-.header .logo{color:var(--crema);}
+.header .logo{color:var(--brand-light);}
 .header .logo__mark{background:var(--naranja);color:var(--negro);}
 
 .hamburger{
   display:none;background:transparent;border:1px solid rgba(255,255,255,.14);
-  width:40px;height:40px;border-radius:6px;color:var(--crema);
+  width:40px;height:40px;border-radius:6px;color:var(--brand-light);
   align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
 }
 .hamburger svg{width:20px;height:20px;}
@@ -614,7 +614,7 @@ input:focus-visible,
   display:flex;align-items:center;justify-content:space-between;
   padding:20px 22px;border-bottom:1px solid rgba(255,255,255,.08);
 }
-.site-menu__head button{background:transparent;border:1px solid rgba(255,255,255,.14);width:36px;height:36px;border-radius:6px;color:var(--crema);display:flex;align-items:center;justify-content:center;}
+.site-menu__head button{background:transparent;border:1px solid rgba(255,255,255,.14);width:36px;height:36px;border-radius:6px;color:var(--brand-light);display:flex;align-items:center;justify-content:center;}
 .site-menu__head button svg{width:18px;height:18px;}
 .site-menu__nav{display:flex;flex-direction:column;flex:1;padding:10px 0;}
 .site-menu__nav a{
