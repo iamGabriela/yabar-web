@@ -62,7 +62,9 @@ if (btnTheme) {
 }
 
 // =========================================================
-// BUSCADOR DEL HEADER
+// BUSCADOR DEL HEADER — ahora sí busca en el catálogo real.
+// En productos.html filtra en vivo; en el resto de páginas
+// redirige al catálogo con el término precargado.
 // =========================================================
 const WHATSAPP_NUMERO = "51958345849";
 const searchForm = document.getElementById('searchbar');
@@ -70,9 +72,15 @@ if (searchForm) {
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const query = document.getElementById('search-input').value.trim();
-    if (query) {
-      const mensaje = encodeURIComponent(`Hola Yabar, busco: ${query}`);
-      window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}`, '_blank');
+    if (!query) return;
+
+    const catalogoSearchInput = document.getElementById('catalogo-search');
+    if (catalogoSearchInput) {
+      catalogoSearchInput.value = query;
+      catalogoSearchInput.dispatchEvent(new Event('input'));
+      document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `productos.html?q=${encodeURIComponent(query)}#productos`;
     }
   });
 }
@@ -198,6 +206,12 @@ if (catalogoSearch) {
     FILTRO_TEXTO = e.target.value.trim();
     renderProductos();
   });
+
+  const qParam = new URLSearchParams(window.location.search).get('q');
+  if (qParam) {
+    catalogoSearch.value = qParam;
+    FILTRO_TEXTO = qParam.trim();
+  }
 }
 
 cargarProductosPublicos();
