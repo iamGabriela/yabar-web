@@ -216,6 +216,7 @@ a{text-decoration:none;color:inherit;}
   box-shadow:0 2px 8px rgba(22,16,12,.04);
 }
 .card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(22,16,12,.12);}
+[data-theme="dark"] .card:hover{box-shadow:0 14px 32px rgba(0,0,0,.5);}
 .card__img{
   height:190px;background:var(--crema);
   display:flex;align-items:center;justify-content:center;overflow:hidden;
@@ -312,6 +313,7 @@ input:focus-visible,
   color:var(--marron-2);flex-shrink:0;
 }
 .btn-copy:hover{background:var(--naranja);color:#fff;}
+[data-theme="dark"] .btn-copy{background:rgba(255,255,255,.08);}
 .card__cta{
   margin-top:auto;font-weight:700;color:var(--negro);
   border-top:1px solid var(--piedra);padding-top:14px;
@@ -399,6 +401,19 @@ input:focus-visible,
   transition:transform .15s ease;
 }
 .whatsapp-float:hover{transform:scale(1.08);}
+
+/* ===== THEME FLOAT (flotante modo claro/oscuro) ===== */
+.theme-float{
+  position:fixed;bottom:24px;left:24px;
+  background:var(--negro);color:var(--crema);
+  border:none;width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.28);
+  z-index:999;cursor:pointer;
+  transition:transform .15s ease, background .25s ease, color .25s ease;
+}
+.theme-float:hover{transform:scale(1.08);}
+.theme-float svg{width:22px;height:22px;}
 
 /* ===== ICONS ===== */
 .icon{width:15px;height:15px;flex-shrink:0;}
@@ -554,6 +569,7 @@ input:focus-visible,
   transition:transform .18s ease, box-shadow .18s ease;
 }
 .servicio-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(22,16,12,.12);}
+[data-theme="dark"] .servicio-card:hover{box-shadow:0 16px 34px rgba(0,0,0,.5);}
 .servicio-card__img{height:210px;position:relative;overflow:hidden;}
 .servicio-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
 .servicio-card:hover .servicio-card__img img{transform:scale(1.06);}
@@ -797,6 +813,7 @@ input:focus-visible,
   .hero{padding:80px 0 60px;}
   .hero__bgtext{font-size:6rem;}
   .whatsapp-float{width:64px;height:64px;bottom:18px;right:18px;box-shadow:0 6px 22px rgba(37,211,102,.45);}
+  .theme-float{width:56px;height:56px;bottom:18px;left:18px;}
   #testimonios-carousel .carousel-item{padding:0 34px;}
   .cobertura__grid{grid-template-columns:1fr;}
   .footer__inner{grid-template-columns:1fr;}
