@@ -128,8 +128,12 @@
           </div>
         </div>
 
+        <div class="map-tabs" role="tablist" aria-label="Elegir sede en el mapa">
+          <button type="button" class="map-tabs__btn is-active" data-map="nasca" role="tab" aria-selected="true">Nasca</button>
+          <button type="button" class="map-tabs__btn" data-map="acari" role="tab" aria-selected="false">Acarí</button>
+        </div>
         <div class="contacto__map">
-          <iframe
+          <iframe id="contacto-map-frame"
             src="https://www.google.com/maps?q=Carr.+Interoce%C3%A1nica+8450,+Nazca+11401,+Peru&output=embed"
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">

@@ -245,6 +245,32 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
 // =========================================================
 // FORMULARIO DE CONTACTO: arma el mensaje y abre WhatsApp
 // =========================================================
+const mapFrame = document.getElementById('contacto-map-frame');
+const mapTabs = document.querySelectorAll('.map-tabs__btn');
+const mapSrc = {
+  nasca: 'https://www.google.com/maps?q=Carr.+Interoce%C3%A1nica+8450,+Nazca+11401,+Peru&output=embed',
+  acari: 'https://www.google.com/maps?q=Calle+Ricardo+Palma+Mz+15+Lote+17,+Acar%C3%AD,+Peru&output=embed'
+};
+function setMap(sede) {
+  if (!mapFrame || !mapSrc[sede]) return;
+  mapFrame.src = mapSrc[sede];
+  mapTabs.forEach((btn) => {
+    const active = btn.dataset.map === sede;
+    btn.classList.toggle('is-active', active);
+    btn.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+}
+mapTabs.forEach((btn) => {
+  btn.addEventListener('click', () => setMap(btn.dataset.map));
+});
+const cfSede = document.getElementById('cf-sede');
+if (cfSede) {
+  cfSede.addEventListener('change', () => {
+    const sedeNombre = cfSede.selectedOptions[0].text.trim().toLowerCase();
+    setMap(sedeNombre === 'acarí' ? 'acari' : 'nasca');
+  });
+}
+
 const formContacto = document.getElementById('form-contacto');
 if (formContacto) {
   formContacto.addEventListener('submit', (e) => {
