@@ -142,7 +142,7 @@ a{text-decoration:none;color:inherit;}
 .wa-group__label{font-size:.8rem;font-weight:600;color:rgba(243,238,231,.6);margin:0 0 8px;}
 .wa-group--adaptive .wa-group__label{color:var(--marron-2);opacity:.75;}
 .wa-group__btns{display:flex;gap:10px;flex-wrap:wrap;}
-.wa-group__btns .btn{flex:1;min-width:130px;text-align:center;}
+.wa-group__btns .btn{text-align:center;}
 .wa-group--onlight .wa-group__label{color:rgba(0,0,0,.55);}
 .wa-group--center{text-align:center;}
 .wa-group--center .wa-group__btns{justify-content:center;}
