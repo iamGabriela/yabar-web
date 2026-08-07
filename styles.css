@@ -413,9 +413,28 @@ input:focus-visible,
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 6px 18px rgba(0,0,0,.28);
   z-index:999;
+  border:none;padding:0;cursor:pointer;
   transition:transform .15s ease;
 }
 .whatsapp-float:hover{transform:scale(1.08);}
+
+.wa-float-menu{
+  position:fixed;bottom:90px;right:24px;
+  display:flex;flex-direction:column;gap:8px;
+  background:var(--bg-card);border:1px solid var(--border-soft);border-radius:14px;
+  padding:10px;box-shadow:0 10px 28px rgba(0,0,0,.3);
+  z-index:999;
+  opacity:0;pointer-events:none;transform:translateY(8px);
+  transition:opacity .15s ease, transform .15s ease;
+}
+.wa-float-menu.is-open{opacity:1;pointer-events:auto;transform:translateY(0);}
+.wa-float-menu a{
+  display:block;min-width:140px;text-align:center;
+  background:#25D366;color:#fff;font-weight:700;font-size:.9rem;
+  padding:10px 16px;border-radius:999px;
+  transition:background .15s ease;
+}
+.wa-float-menu a:hover{background:#1ebd59;}
 
 /* ===== THEME FLOAT (flotante modo claro/oscuro) ===== */
 .theme-float{

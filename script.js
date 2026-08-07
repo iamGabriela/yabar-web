@@ -245,6 +245,25 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
 // =========================================================
 // FORMULARIO DE CONTACTO: arma el mensaje y abre WhatsApp
 // =========================================================
+// =========================================================
+// WHATSAPP FLOTANTE: menú de sede (Nasca / Acarí)
+// =========================================================
+const btnWaFloat = document.getElementById('btn-whatsapp-float');
+const waFloatMenu = document.getElementById('wa-float-menu');
+if (btnWaFloat && waFloatMenu) {
+  btnWaFloat.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const abierto = waFloatMenu.classList.toggle('is-open');
+    btnWaFloat.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  });
+  document.addEventListener('click', (e) => {
+    if (!waFloatMenu.contains(e.target) && e.target !== btnWaFloat) {
+      waFloatMenu.classList.remove('is-open');
+      btnWaFloat.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 const mapFrame = document.getElementById('contacto-map-frame');
 const mapTabs = document.querySelectorAll('.map-tabs__btn');
 const mapSrc = {
