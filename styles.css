@@ -780,7 +780,8 @@ input:focus-visible,
 .cat-card svg{margin-top:16px;}
 
 /* ===== COMO FUNCIONA ===== */
-.como-funciona{background:var(--piedra);padding:90px 0;}
+.como-funciona{background:var(--marron);color:var(--brand-light);padding:90px 0;}
+.como-funciona .section-title{color:var(--brand-light);}
 .pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
 .paso{text-align:left;}
 .paso__num{
@@ -789,7 +790,7 @@ input:focus-visible,
   display:flex;align-items:center;justify-content:center;margin-bottom:18px;
 }
 .paso h3{font-size:1.15rem;margin-bottom:8px;}
-.paso p{color:var(--marron-2);font-size:.95rem;}
+.paso p{color:rgba(243,238,231,.68);font-size:.95rem;}
 
 /* ===== COBERTURA ===== */
 .cobertura{background:var(--brand-dark);color:var(--brand-light);padding:90px 0;}
