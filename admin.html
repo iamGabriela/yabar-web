@@ -36,11 +36,11 @@
   <div id="login-box" class="admin-box">
     <h2>Panel Yabar — Ingreso</h2>
     <div class="field">
-      <label>Usuario</label>
+      <label for="login-user">Usuario</label>
       <input type="text" id="login-user" autocomplete="username">
     </div>
     <div class="field">
-      <label>Contraseña</label>
+      <label for="login-pass">Contraseña</label>
       <input type="password" id="login-pass" autocomplete="current-password">
     </div>
     <button class="btn btn--primary" id="btn-login" style="width:100%;justify-content:center;">Ingresar</button>
@@ -57,15 +57,15 @@
       <h2 id="form-title">Nuevo producto</h2>
       <input type="hidden" id="prod-id">
       <div class="row2">
-        <div class="field"><label>Nombre</label><input type="text" id="prod-nombre"></div>
-        <div class="field"><label>Categoría</label><input type="text" id="prod-categoria"></div>
+        <div class="field"><label for="prod-nombre">Nombre</label><input type="text" id="prod-nombre"></div>
+        <div class="field"><label for="prod-categoria">Categoría</label><input type="text" id="prod-categoria"></div>
       </div>
       <div class="row2">
-        <div class="field"><label>Precio (S/)</label><input type="number" step="0.01" id="prod-precio"></div>
-        <div class="field"><label>Unidad (ej: "el millar", "el día")</label><input type="text" id="prod-unidad"></div>
+        <div class="field"><label for="prod-precio">Precio (S/)</label><input type="number" step="0.01" id="prod-precio"></div>
+        <div class="field"><label for="prod-unidad">Unidad (ej: "el millar", "el día")</label><input type="text" id="prod-unidad"></div>
       </div>
-      <div class="field"><label>Descripción</label><textarea id="prod-descripcion" rows="2"></textarea></div>
-      <div class="field"><label>URL de imagen (opcional)</label><input type="text" id="prod-imagen"></div>
+      <div class="field"><label for="prod-descripcion">Descripción</label><textarea id="prod-descripcion" rows="2"></textarea></div>
+      <div class="field"><label for="prod-imagen">URL de imagen (opcional)</label><input type="text" id="prod-imagen"></div>
       <div style="display:flex;gap:12px;margin-top:10px;">
         <button class="btn btn--primary" id="btn-guardar">Guardar</button>
         <button class="btn btn--ghost" id="btn-cancelar" style="display:none;">Cancelar edición</button>

@@ -19,7 +19,7 @@
 
 <header class="header" id="site-header">
   <div class="container header__inner">
-    <button class="hamburger" id="btn-hamburger" aria-label="Abrir menú">
+    <button class="hamburger" id="btn-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
 
@@ -143,6 +143,7 @@
       <div class="filtros-chips" id="filtros-categorias">
         <button type="button" class="chip is-active" data-categoria="todos">Todas</button>
       </div>
+      <p class="productos__count" id="productos-count"></p>
       <div class="cards" id="cards-productos">
         <p id="productos-loading" style="grid-column:1/-1;color:var(--text-muted);">Cargando productos…</p>
       </div>

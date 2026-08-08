@@ -12,12 +12,16 @@ function abrirMenu() {
   offcanvas.classList.add('is-open');
   offcanvasBackdrop.classList.add('is-open');
   document.body.style.overflow = 'hidden';
+  if (btnHamburger) btnHamburger.setAttribute('aria-expanded', 'true');
+  const primerLink = offcanvas.querySelector('.site-menu__nav a');
+  if (primerLink) primerLink.focus();
 }
 function cerrarMenu() {
   if (!offcanvas || !offcanvasBackdrop) return;
   offcanvas.classList.remove('is-open');
   offcanvasBackdrop.classList.remove('is-open');
   document.body.style.overflow = '';
+  if (btnHamburger) btnHamburger.setAttribute('aria-expanded', 'false');
 }
 
 if (btnHamburger) btnHamburger.addEventListener('click', abrirMenu);
@@ -153,6 +157,7 @@ function construirFiltrosCategoria(productos) {
 
 function renderProductos() {
   const contenedor = document.getElementById('cards-productos');
+  const contador = document.getElementById('productos-count');
   if (!contenedor) return;
 
   let lista = PRODUCTOS_CACHE;
@@ -168,8 +173,22 @@ function renderProductos() {
     );
   }
 
+  if (contador) {
+    const total = PRODUCTOS_CACHE.length;
+    contador.textContent = (FILTRO_CATEGORIA !== 'todos' || FILTRO_TEXTO)
+      ? `${lista.length} de ${total} productos`
+      : `${total} productos`;
+  }
+
   if (lista.length === 0) {
-    contenedor.innerHTML = '<p class="cards-empty">No encontramos productos con ese filtro. Prueba con otra palabra o escríbenos por WhatsApp.</p>';
+    const consultaWa = encodeURIComponent(`Hola Yabar, busco: ${FILTRO_TEXTO || 'un producto que no encuentro en el catálogo'}`);
+    contenedor.innerHTML = `
+      <div class="cards-empty">
+        <p class="cards-empty__title">No encontramos productos con ese filtro</p>
+        <p class="cards-empty__sub">Prueba con otra palabra, o pregúntanos directo: seguro lo tenemos igual.</p>
+        <a class="btn btn--primary" target="_blank" rel="noopener"
+           href="https://wa.me/${WHATSAPP_NUMERO}?text=${consultaWa}">Preguntar por WhatsApp</a>
+      </div>`;
     return;
   }
 
