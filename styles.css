@@ -413,7 +413,7 @@ input:focus-visible,
 
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float{
-  position:fixed;bottom:24px;right:24px;
+  position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));right:24px;
   background:#25D366;
   width:58px;height:58px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -425,7 +425,7 @@ input:focus-visible,
 .whatsapp-float:hover{transform:scale(1.08);}
 
 .wa-float-menu{
-  position:fixed;bottom:90px;right:24px;
+  position:fixed;bottom:calc(90px + env(safe-area-inset-bottom));right:24px;
   display:flex;flex-direction:column;gap:8px;
   background:var(--bg-card);border:1px solid var(--border-soft);border-radius:14px;
   padding:10px;box-shadow:0 10px 28px rgba(0,0,0,.3);
@@ -444,7 +444,7 @@ input:focus-visible,
 
 /* ===== THEME FLOAT (flotante modo claro/oscuro) ===== */
 .theme-float{
-  position:fixed;bottom:24px;left:24px;
+  position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:24px;
   background:var(--negro);color:var(--crema);
   border:none;width:52px;height:52px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -866,6 +866,7 @@ input:focus-visible,
   .catalogo-search{width:100%;}
 }
 @media (max-width:560px){
+  .footer__bottom{padding-bottom:88px;}
   .strip__grid{grid-template-columns:1fr;}
   .cat-grid{grid-template-columns:1fr;}
   .topbar__inner{justify-content:center;}
@@ -873,8 +874,8 @@ input:focus-visible,
   .cards{grid-template-columns:1fr;}
   .hero{padding:80px 0 60px;}
   .hero__bgtext{font-size:6rem;}
-  .whatsapp-float{width:64px;height:64px;bottom:18px;right:18px;box-shadow:0 6px 22px rgba(37,211,102,.45);}
-  .theme-float{width:56px;height:56px;bottom:18px;left:18px;}
+  .whatsapp-float{width:64px;height:64px;bottom:calc(18px + env(safe-area-inset-bottom));right:18px;box-shadow:0 6px 22px rgba(37,211,102,.45);}
+  .theme-float{width:56px;height:56px;bottom:calc(18px + env(safe-area-inset-bottom));left:18px;}
   #testimonios-carousel .carousel-item{padding:0 34px;}
   .cobertura__grid{grid-template-columns:1fr;}
   .footer__inner{grid-template-columns:1fr;}
