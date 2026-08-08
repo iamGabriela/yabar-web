@@ -30,6 +30,24 @@ if (offcanvasBackdrop) offcanvasBackdrop.addEventListener('click', cerrarMenu);
 document.querySelectorAll('.site-menu__nav a').forEach(a => a.addEventListener('click', cerrarMenu));
 
 // =========================================================
+// BOTÓN VOLVER ARRIBA — se crea por JS para no repetir
+// el markup en cada página, aparece tras hacer scroll.
+// =========================================================
+const btnBackToTop = document.createElement('button');
+btnBackToTop.type = 'button';
+btnBackToTop.className = 'back-to-top';
+btnBackToTop.id = 'btn-back-to-top';
+btnBackToTop.setAttribute('aria-label', 'Volver arriba');
+btnBackToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
+document.body.appendChild(btnBackToTop);
+btnBackToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+window.addEventListener('scroll', () => {
+  btnBackToTop.classList.toggle('is-visible', window.scrollY > 500);
+});
+
+// =========================================================
 // SOMBRA EN EL HEADER AL HACER SCROLL
 // =========================================================
 const header = document.querySelector('.header');
@@ -62,6 +80,23 @@ if (btnTheme) {
   btnTheme.addEventListener('click', () => {
     const actual = document.documentElement.getAttribute('data-theme') || 'light';
     aplicarTema(actual === 'light' ? 'dark' : 'light');
+  });
+}
+
+// =========================================================
+// BUSCADOR MOBILE — el icono de lupa expande el buscador
+// en vez de dejarlo desaparecido sin reemplazo.
+// =========================================================
+const btnSearchMobile = document.getElementById('btn-search-mobile');
+const searchbarEl = document.getElementById('searchbar');
+if (btnSearchMobile && searchbarEl) {
+  btnSearchMobile.addEventListener('click', () => {
+    const abierto = searchbarEl.classList.toggle('is-open');
+    btnSearchMobile.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    if (abierto) {
+      const input = document.getElementById('search-input');
+      if (input) input.focus();
+    }
   });
 }
 
@@ -193,10 +228,11 @@ function renderProductos() {
   }
 
   contenedor.innerHTML = lista.map((p, i) => {
+    const nombreProducto = (p.nombre || '').trim() || 'Producto Yabar';
     const esNuevo = i < 3 && FILTRO_CATEGORIA === 'todos' && !FILTRO_TEXTO;
     const badge = esNuevo ? '<span class="card__badge">Nuevo</span>' : '';
     const imgHtml = p.imagenUrl
-      ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
+      ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${nombreProducto}" loading="lazy"></div>`
       : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
     const unidadLimpia = p.unidad
       ? p.unidad.replace(/^(el|la|los|las)\s+/i, '').replace(/^./, c => c.toUpperCase())
@@ -204,14 +240,14 @@ function renderProductos() {
     const unidadHtml = unidadLimpia
       ? `<p class="card__unit"><strong>Presentación:</strong> ${unidadLimpia}</p>`
       : '';
-    const mensaje = encodeURIComponent(`Hola Yabar, quiero cotizar: ${p.nombre}`);
+    const mensaje = encodeURIComponent(`Hola Yabar, quiero cotizar: ${nombreProducto}`);
     return `
       <article class="card">
         ${imgHtml}
         <div class="card__body">
           ${badge}
           <span class="card__tag">${p.categoria || 'Producto'}</span>
-          <h3 class="card__title">${p.nombre}</h3>
+          <h3 class="card__title">${nombreProducto}</h3>
           ${unidadHtml}
           <a class="card__cta--btn" target="_blank" rel="noopener"
              href="https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}">
