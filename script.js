@@ -179,8 +179,11 @@ function renderProductos() {
     const imgHtml = p.imagenUrl
       ? `<div class="card__img"><img src="${p.imagenUrl}" alt="${p.nombre}" loading="lazy"></div>`
       : `<div class="card__img card__img--empty"><span>YABAR</span></div>`;
-    const unidadHtml = p.unidad
-      ? `<p class="card__unit"><strong>Presentación:</strong> ${p.unidad}</p>`
+    const unidadLimpia = p.unidad
+      ? p.unidad.replace(/^(el|la|los|las)\s+/i, '').replace(/^./, c => c.toUpperCase())
+      : '';
+    const unidadHtml = unidadLimpia
+      ? `<p class="card__unit"><strong>Presentación:</strong> ${unidadLimpia}</p>`
       : '';
     const mensaje = encodeURIComponent(`Hola Yabar, quiero cotizar: ${p.nombre}`);
     return `
