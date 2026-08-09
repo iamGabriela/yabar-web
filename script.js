@@ -1,4 +1,24 @@
 // =========================================================
+// ACCESO ADMIN OCULTO — sin botón visible en el sitio.
+// Atajo: Ctrl + Shift + A (Cmd + Shift + A en Mac) en cualquier
+// página pública lleva directo al panel admin.
+// Se usa Ctrl+Shift (no Ctrl+Alt) porque en teclados en español
+// Ctrl+Alt equivale a la tecla AltGr y el sistema operativo se
+// queda con la combinación antes de que llegue al navegador.
+// Se compara con e.code (posición física de la tecla) en vez de
+// e.key, para que funcione igual sin importar el idioma del
+// teclado.
+// =========================================================
+if (!location.pathname.endsWith('admin.html') && !location.pathname.endsWith('bulk-upload.html')) {
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === 'KeyA') {
+      e.preventDefault();
+      window.location.href = 'admin.html';
+    }
+  });
+}
+
+// =========================================================
 // SEDE PREFERIDA (Nasca / Acarí) — los botones "genéricos"
 // de cotizar (que no dicen a qué sede van) primero PREGUNTAN
 // a qué sede quiere escribir el usuario, y recién ahí abren
