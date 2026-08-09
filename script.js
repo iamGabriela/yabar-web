@@ -1,18 +1,4 @@
 // =========================================================
-// ACCESO ADMIN OCULTO — sin botón visible en el sitio.
-// Atajo: Ctrl + Alt + A (o Cmd + Alt + A en Mac) en cualquier
-// página pública lleva directo al panel admin.
-// =========================================================
-if (!location.pathname.endsWith('admin.html') && !location.pathname.endsWith('bulk-upload.html')) {
-  document.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.altKey && e.key.toLowerCase() === 'a') {
-      e.preventDefault();
-      window.location.href = 'admin.html';
-    }
-  });
-}
-
-// =========================================================
 // SEDE PREFERIDA (Nasca / Acarí) — los botones "genéricos"
 // de cotizar (que no dicen a qué sede van) primero PREGUNTAN
 // a qué sede quiere escribir el usuario, y recién ahí abren
