@@ -38,6 +38,19 @@ document.querySelectorAll('[data-set-sede]').forEach((a) => {
   a.addEventListener('click', () => setSedeActual(a.dataset.setSede));
 });
 
+// ---- Toggle "Nasca / Acarí" del hero (index.html) ----
+const heroSedePillBtns = document.querySelectorAll('[data-sede-pill]');
+if (heroSedePillBtns.length) {
+  const pintarSedePill = () => {
+    const actual = getSedeActual();
+    heroSedePillBtns.forEach((b) => {
+      b.classList.toggle('is-active', b.dataset.setSede === actual);
+    });
+  };
+  pintarSedePill();
+  heroSedePillBtns.forEach((b) => b.addEventListener('click', pintarSedePill));
+}
+
 // ---- Modal "¿Desde qué sede?" para los botones genéricos ----
 let waModalUrlPendiente = null;
 

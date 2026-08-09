@@ -122,32 +122,35 @@
 
 <main id="top">
 
-  <!-- ===== HERO: centrado tipo póster (Opción D) ===== -->
+  <!-- ===== HERO: centrado tipo póster, sede en toggle ===== -->
   <section class="hero-poster">
-    <p class="hero-poster__eyebrow">NASCA, PERÚ — GENTE QUE CONSTRUYE</p>
-    <h1 class="hero-poster__title">No vendemos materiales, <span class="accent">construimos contigo.</span></h1>
-    <p class="hero-poster__sub">Cemento, fierro, ladrillo, tuberías y maquinaria. Llegamos con todo tu material a donde otros no llegan, al mejor precio del mercado.</p>
+    <div class="container hero-poster__top">
+      <p class="eyebrow">NASCA, PERÚ — GENTE QUE CONSTRUYE</p>
+      <h1 class="hero-poster__title">No vendemos materiales, <span class="accent">construimos contigo.</span></h1>
+      <p class="hero-poster__sub">Cemento, fierro, ladrillo, tuberías y maquinaria. Llegamos con todo tu material a donde otros no llegan, al mejor precio del mercado.</p>
 
-    <div class="hero-poster__sede sede-row">
-      <span>SEDE</span>
-      <a class="is-active" data-set-sede="nasca" target="_blank" rel="noopener"
-         href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">Nasca</a>
-      <a data-set-sede="acari" target="_blank" rel="noopener"
-         href="https://wa.me/51945531058?text=Hola%20Yabar%2C%20quisiera%20cotizar">Acarí</a>
-      <a class="hero-poster__cta" href="productos.html">Ver catálogo →</a>
+      <div class="sede-pill">
+        <span class="sede-pill__label">Sede</span>
+        <button type="button" class="sede-pill__btn" data-set-sede="nasca" data-sede-pill>Nasca</button>
+        <button type="button" class="sede-pill__btn" data-set-sede="acari" data-sede-pill>Acarí</button>
+        <a class="sede-pill__cta" target="_blank" rel="noopener" data-wa-generic
+           href="https://wa.me/51958345849?text=Hola%20Yabar%2C%20quisiera%20cotizar">Cotizar <span>→</span></a>
+      </div>
+
+      <a class="hero-poster__catalog" href="productos.html">Ver catálogo completo <span>→</span></a>
     </div>
 
     <div class="hero-poster__photo">
       <img src="images/site/rebar-stack.jpg" alt="Materiales de construcción Yabar listos para entrega">
     </div>
+  </section>
 
-    <div class="hero-poster__stats">
-      <div class="hero-poster__stats-inner">
-        <div><strong>+5</strong><span>años en Nasca</span></div>
-        <div><strong>500+</strong><span>obras atendidas</span></div>
-        <div><strong>5</strong><span>zonas con entrega</span></div>
-        <div><strong>2</strong><span>sedes: Nasca y Acarí</span></div>
-      </div>
+  <section class="hero-stats">
+    <div class="container hero-stats__grid">
+      <div><strong>+5</strong><span>años en Nasca</span></div>
+      <div><strong>500+</strong><span>obras atendidas</span></div>
+      <div><strong>5</strong><span>zonas con entrega directa</span></div>
+      <div><strong>2</strong><span>sedes: Nasca y Acarí</span></div>
     </div>
   </section>
 
@@ -435,6 +438,6 @@
 </button>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>
