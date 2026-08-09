@@ -94,6 +94,7 @@ const searchbarEl = document.getElementById('searchbar');
 if (btnSearchMobile && searchbarEl) {
   btnSearchMobile.addEventListener('click', () => {
     const abierto = searchbarEl.classList.toggle('is-open');
+    if (header) header.classList.toggle('search-open', abierto);
     btnSearchMobile.setAttribute('aria-expanded', abierto ? 'true' : 'false');
     if (abierto) {
       const input = document.getElementById('search-input');
