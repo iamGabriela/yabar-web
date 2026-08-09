@@ -1,13 +1,19 @@
 // =========================================================
 // SEDE PREFERIDA (Nasca / Acarí) — los botones "genéricos"
-// de cotizar (que no dicen a qué sede van) usan la última
-// sede que el usuario eligió. Por defecto: Nasca.
+// de cotizar (que no dicen a qué sede van) primero PREGUNTAN
+// a qué sede quiere escribir el usuario, y recién ahí abren
+// WhatsApp. Esa elección se recuerda para los siguientes clics.
 // =========================================================
 const SEDE_KEY = 'yabar_sede';
 const SEDES_WA = { nasca: '51958345849', acari: '51945531058' };
 
+function getSedeGuardada() {
+  const v = localStorage.getItem(SEDE_KEY);
+  return (v === 'nasca' || v === 'acari') ? v : null;
+}
+
 function getSedeActual() {
-  return localStorage.getItem(SEDE_KEY) === 'acari' ? 'acari' : 'nasca';
+  return getSedeGuardada() || 'nasca';
 }
 
 function getWhatsappNumero() {
@@ -30,6 +36,73 @@ function setSedeActual(sede) {
 actualizarEnlacesGenericos();
 document.querySelectorAll('[data-set-sede]').forEach((a) => {
   a.addEventListener('click', () => setSedeActual(a.dataset.setSede));
+});
+
+// ---- Modal "¿Desde qué sede?" para los botones genéricos ----
+let waModalUrlPendiente = null;
+
+function crearModalSede() {
+  if (document.getElementById('wa-sede-modal')) return;
+  const modal = document.createElement('div');
+  modal.id = 'wa-sede-modal';
+  modal.className = 'wa-sede-modal';
+  modal.setAttribute('aria-hidden', 'true');
+  modal.innerHTML = `
+    <div class="wa-sede-modal__backdrop" data-wa-modal-close></div>
+    <div class="wa-sede-modal__box" role="dialog" aria-modal="true" aria-label="Elige tu sede">
+      <button type="button" class="wa-sede-modal__close" aria-label="Cerrar" data-wa-modal-close>&times;</button>
+      <p class="wa-sede-modal__title">¿Desde qué sede te atendemos?</p>
+      <div class="wa-sede-modal__btns">
+        <button type="button" class="btn btn--primary" data-sede-choice="nasca">Nasca</button>
+        <button type="button" class="btn btn--primary" data-sede-choice="acari">Acarí</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+  modal.querySelectorAll('[data-wa-modal-close]').forEach((el) => {
+    el.addEventListener('click', cerrarModalSede);
+  });
+}
+
+function abrirModalSede(urlOriginal) {
+  crearModalSede();
+  waModalUrlPendiente = urlOriginal;
+  const modal = document.getElementById('wa-sede-modal');
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function cerrarModalSede() {
+  const modal = document.getElementById('wa-sede-modal');
+  if (!modal) return;
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  waModalUrlPendiente = null;
+}
+
+document.addEventListener('click', (e) => {
+  const choice = e.target.closest('[data-sede-choice]');
+  if (!choice) return;
+  const sede = choice.dataset.sedeChoice;
+  setSedeActual(sede);
+  if (waModalUrlPendiente) {
+    const numero = SEDES_WA[sede];
+    const url = waModalUrlPendiente.replace(/wa\.me\/\d+/, `wa.me/${numero}`);
+    window.open(url, '_blank', 'noopener');
+  }
+  cerrarModalSede();
+});
+
+document.querySelectorAll('[data-wa-generic]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    if (!getSedeGuardada()) {
+      e.preventDefault();
+      abrirModalSede(a.href);
+    }
+    // Si ya hay sede guardada, el href ya tiene el número correcto
+    // (actualizarEnlacesGenericos) y el enlace navega directo.
+  });
 });
 
 // =========================================================
