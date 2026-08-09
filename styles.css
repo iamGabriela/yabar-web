@@ -650,6 +650,7 @@ input:focus-visible,
 .servicios-grid{
   display:grid;grid-template-columns:repeat(2,1fr);gap:28px;
 }
+.servicios-grid--3col{grid-template-columns:repeat(3,1fr);}
 .servicio-card{
   background:var(--bg-card);border:1px solid var(--border-soft);border-radius:18px;
   overflow:hidden;display:flex;flex-direction:column;

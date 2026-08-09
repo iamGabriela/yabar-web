@@ -1,4 +1,38 @@
 // =========================================================
+// SEDE PREFERIDA (Nasca / Acarí) — los botones "genéricos"
+// de cotizar (que no dicen a qué sede van) usan la última
+// sede que el usuario eligió. Por defecto: Nasca.
+// =========================================================
+const SEDE_KEY = 'yabar_sede';
+const SEDES_WA = { nasca: '51958345849', acari: '51945531058' };
+
+function getSedeActual() {
+  return localStorage.getItem(SEDE_KEY) === 'acari' ? 'acari' : 'nasca';
+}
+
+function getWhatsappNumero() {
+  return SEDES_WA[getSedeActual()];
+}
+
+function actualizarEnlacesGenericos() {
+  const numero = getWhatsappNumero();
+  document.querySelectorAll('[data-wa-generic]').forEach((a) => {
+    a.href = a.href.replace(/wa\.me\/\d+/, `wa.me/${numero}`);
+  });
+}
+
+function setSedeActual(sede) {
+  if (sede !== 'nasca' && sede !== 'acari') return;
+  localStorage.setItem(SEDE_KEY, sede);
+  actualizarEnlacesGenericos();
+}
+
+actualizarEnlacesGenericos();
+document.querySelectorAll('[data-set-sede]').forEach((a) => {
+  a.addEventListener('click', () => setSedeActual(a.dataset.setSede));
+});
+
+// =========================================================
 // MENÚ HAMBURGUESA (off-canvas) — se activa PRIMERO y SIEMPRE,
 // sin depender de que Bootstrap u otras cosas carguen bien.
 // =========================================================
@@ -108,7 +142,6 @@ if (btnSearchMobile && searchbarEl) {
 // En productos.html filtra en vivo; en el resto de páginas
 // redirige al catálogo con el término precargado.
 // =========================================================
-const WHATSAPP_NUMERO = "51958345849";
 const searchForm = document.getElementById('searchbar');
 if (searchForm) {
   searchForm.addEventListener('submit', (e) => {
@@ -225,7 +258,7 @@ function renderProductos() {
         <p class="cards-empty__title">No encontramos productos con ese filtro</p>
         <p class="cards-empty__sub">Prueba con otra palabra, o pregúntanos directo: seguro lo tenemos igual.</p>
         <a class="btn btn--primary" target="_blank" rel="noopener"
-           href="https://wa.me/${WHATSAPP_NUMERO}?text=${consultaWa}">Preguntar por WhatsApp</a>
+           href="https://wa.me/${getWhatsappNumero()}?text=${consultaWa}">Preguntar por WhatsApp</a>
       </div>`;
     return;
   }
@@ -253,7 +286,7 @@ function renderProductos() {
           <h3 class="card__title">${nombreProducto}</h3>
           ${unidadHtml}
           <a class="card__cta--btn" target="_blank" rel="noopener"
-             href="https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}">
+             href="https://wa.me/${getWhatsappNumero()}?text=${mensaje}">
             Cotizar por WhatsApp <span aria-hidden="true">→</span>
           </a>
         </div>
