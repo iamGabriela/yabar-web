@@ -603,6 +603,8 @@ input:focus-visible,
 }
 .page-hero--img .container{position:relative;z-index:1;}
 .page-hero--img .hero__actions{margin-top:28px;}
+.page-hero--img .btn--ghost{border-color:var(--brand-light);color:var(--brand-light);}
+.page-hero--img .btn--ghost:hover{background:var(--brand-light);color:var(--brand-dark);}
 
 /* ===== MARCAS ALIADAS ===== */
 .marcas{padding:80px 0;background:var(--brand-dark);}
