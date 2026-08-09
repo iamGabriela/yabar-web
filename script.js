@@ -11,6 +11,7 @@ function abrirMenu() {
   if (!offcanvas || !offcanvasBackdrop) return;
   offcanvas.classList.add('is-open');
   offcanvasBackdrop.classList.add('is-open');
+  document.body.classList.add('menu-open');
   document.body.style.overflow = 'hidden';
   if (btnHamburger) btnHamburger.setAttribute('aria-expanded', 'true');
   const primerLink = offcanvas.querySelector('.site-menu__nav a');
@@ -20,6 +21,7 @@ function cerrarMenu() {
   if (!offcanvas || !offcanvasBackdrop) return;
   offcanvas.classList.remove('is-open');
   offcanvasBackdrop.classList.remove('is-open');
+  document.body.classList.remove('menu-open');
   document.body.style.overflow = '';
   if (btnHamburger) btnHamburger.setAttribute('aria-expanded', 'false');
 }
