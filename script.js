@@ -144,15 +144,18 @@ document.addEventListener('click', (e) => {
   cerrarModalSede();
 });
 
-document.querySelectorAll('[data-wa-generic]').forEach((a) => {
-  a.addEventListener('click', (e) => {
-    if (!getSedeGuardada()) {
-      e.preventDefault();
-      abrirModalSede(a.href);
-    }
-    // Si ya hay sede guardada, el href ya tiene el número correcto
-    // (actualizarEnlacesGenericos) y el enlace navega directo.
-  });
+// Delegado en document: cubre también los botones "Cotizar por WhatsApp"
+// de las tarjetas de producto, que se crean DESPUÉS de que carga la página
+// (llegan de la API), así que un listener puesto solo al inicio no los alcanzaba.
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('[data-wa-generic]');
+  if (!link) return;
+  if (!getSedeGuardada()) {
+    e.preventDefault();
+    abrirModalSede(link.href);
+  }
+  // Si ya hay sede guardada, el href ya tiene el número correcto
+  // (actualizarEnlacesGenericos) y el enlace navega directo.
 });
 
 // =========================================================
@@ -380,7 +383,7 @@ function renderProductos() {
       <div class="cards-empty">
         <p class="cards-empty__title">No encontramos productos con ese filtro</p>
         <p class="cards-empty__sub">Prueba con otra palabra, o pregúntanos directo: seguro lo tenemos igual.</p>
-        <a class="btn btn--primary" target="_blank" rel="noopener"
+        <a class="btn btn--primary" target="_blank" rel="noopener" data-wa-generic
            href="https://wa.me/${getWhatsappNumero()}?text=${consultaWa}">Preguntar por WhatsApp</a>
       </div>`;
     return;
@@ -408,7 +411,7 @@ function renderProductos() {
           <span class="card__tag">${p.categoria || 'Producto'}</span>
           <h3 class="card__title">${nombreProducto}</h3>
           ${unidadHtml}
-          <a class="card__cta--btn" target="_blank" rel="noopener"
+          <a class="card__cta--btn" target="_blank" rel="noopener" data-wa-generic
              href="https://wa.me/${getWhatsappNumero()}?text=${mensaje}">
             Cotizar por WhatsApp <span aria-hidden="true">→</span>
           </a>
