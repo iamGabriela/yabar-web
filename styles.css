@@ -965,7 +965,7 @@ body.menu-open .back-to-top{opacity:0;visibility:hidden;pointer-events:none;}
   .catalogo-search{width:100%;}
 }
 @media (max-width:560px){
-  .footer{padding-bottom:150px;}
+  .footer{padding-bottom:180px;}
   .strip__grid{grid-template-columns:1fr;}
   .cat-grid{grid-template-columns:1fr;}
   .topbar__inner{justify-content:center;}
