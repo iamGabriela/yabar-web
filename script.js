@@ -40,12 +40,19 @@ document.querySelectorAll('[data-set-sede]').forEach((a) => {
 
 // ---- Toggle "Nasca / Acarí" del hero (index.html) ----
 const heroSedePillBtns = document.querySelectorAll('[data-sede-pill]');
+const heroCotizarCta = document.getElementById('hero-cotizar-cta');
+const NOMBRE_SEDE = { nasca: 'Nasca', acari: 'Acarí' };
 if (heroSedePillBtns.length) {
   const pintarSedePill = () => {
     const actual = getSedeActual();
     heroSedePillBtns.forEach((b) => {
-      b.classList.toggle('is-active', b.dataset.setSede === actual);
+      const activo = b.dataset.setSede === actual;
+      b.classList.toggle('is-active', activo);
+      b.setAttribute('aria-pressed', activo ? 'true' : 'false');
     });
+    if (heroCotizarCta) {
+      heroCotizarCta.innerHTML = `Cotizar — ${NOMBRE_SEDE[actual]} <span>→</span>`;
+    }
   };
   pintarSedePill();
   heroSedePillBtns.forEach((b) => b.addEventListener('click', pintarSedePill));
@@ -76,6 +83,8 @@ function crearModalSede() {
   });
 }
 
+let elementoConFocoPrevio = null;
+
 function abrirModalSede(urlOriginal) {
   crearModalSede();
   waModalUrlPendiente = urlOriginal;
@@ -83,6 +92,9 @@ function abrirModalSede(urlOriginal) {
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  elementoConFocoPrevio = document.activeElement;
+  const primerBoton = modal.querySelector('[data-sede-choice]');
+  if (primerBoton) primerBoton.focus();
 }
 
 function cerrarModalSede() {
@@ -92,7 +104,32 @@ function cerrarModalSede() {
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
   waModalUrlPendiente = null;
+  if (elementoConFocoPrevio) {
+    elementoConFocoPrevio.focus();
+    elementoConFocoPrevio = null;
+  }
 }
+
+document.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('wa-sede-modal');
+  if (!modal || !modal.classList.contains('is-open')) return;
+  if (e.key === 'Escape') {
+    cerrarModalSede();
+    return;
+  }
+  if (e.key === 'Tab') {
+    const focusables = modal.querySelectorAll('button');
+    const primero = focusables[0];
+    const ultimo = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) {
+      e.preventDefault();
+      ultimo.focus();
+    } else if (!e.shiftKey && document.activeElement === ultimo) {
+      e.preventDefault();
+      primero.focus();
+    }
+  }
+});
 
 document.addEventListener('click', (e) => {
   const choice = e.target.closest('[data-sede-choice]');
